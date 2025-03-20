@@ -4,7 +4,7 @@
 </p>
 
 <!-- Nom / Introduction -->
-<h1 align="center">mpgamer75</h1>
+<h1 align="center">Charles Lantigua Jorge</h1>
 <p align="center">
   Étudiant en cybersécurité passionné par le développement web.<br/>
   Commits are coming 👌
