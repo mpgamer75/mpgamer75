@@ -59,7 +59,7 @@
 
 ## 🏆 Trophées GitHub
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=mpgamer75&theme=dracula&no-frame=true&row=1&column=7" 
+  <img src="https://github-trophies.vercel.app/?username=mpgamer75&theme=dracula&no-frame=true&column=7" 
        alt="Trophées GitHub de mpgamer75" />
 </div>
 
