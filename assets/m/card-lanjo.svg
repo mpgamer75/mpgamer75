@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 646" width="640" height="646" role="img" aria-labelledby="t d">
+  <title id="t">Lanjo Technologies</title>
+  <desc id="d">Co-founder. Cybersecurity, IT infrastructure, web and custom software studio in Santiago de los Caballeros. Company site built with Next.js 16, React 19 and Tailwind v4.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    .arrow { animation: nudge 2.4s ease-in-out infinite; }
+    .wline { fill: none; stroke: #f0a23b; stroke-width: 1.6; stroke-dasharray: 620; stroke-dashoffset: 620; animation: wline 10s ease-in-out infinite; }
+    .wfill { fill: #f0a23b; opacity: 0; animation: wfill 10s ease-in-out infinite; }
+    .svc { fill: #7d786f; animation: svc 6s linear infinite; }
+    @keyframes wline { 0% { stroke-dashoffset: 620; opacity: 1; } 35%, 82% { stroke-dashoffset: 0; opacity: 1; } 94%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes wfill { 0%, 30% { opacity: 0; } 45%, 82% { opacity: .16; } 94%, 100% { opacity: 0; } }
+    @keyframes svc { 0%, 25%, 100% { fill: #7d786f; } 4%, 20% { fill: #ffcf85; } }
+    @media (prefers-reduced-motion: reduce) { .wline { stroke-dashoffset: 0; } .wfill { opacity: .16; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#24262c"/></pattern>
+    <linearGradient id="fadeE" x1="0" x2="0" y1="1" y2="0"><stop offset="0" stop-color="#0a0b0e"/><stop offset="1" stop-color="#0a0b0e" stop-opacity="0"/></linearGradient>
+    <clipPath id="pr"><rect width="640" height="646" rx="16"/></clipPath>
+  </defs>
+  <rect x=".5" y=".5" width="639" height="645" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <g clip-path="url(#pr)">
+    <rect x="0" y="1" width="639" height="248" fill="url(#dots)"/>
+    <rect x="0" y="160" width="640" height="90" fill="url(#fadeE)"/>
+    <text class="sans wfill" x="580" y="160" font-size="128" font-weight="800" letter-spacing="4" text-anchor="end">LANJO</text><text class="sans wline" x="580" y="160" font-size="128" font-weight="800" letter-spacing="4" text-anchor="end">LANJO</text>
+    
+    
+    <text class="mono muted" x="584" y="214" font-size="14" letter-spacing="1" text-anchor="end">SANTIAGO DE LOS CABALLEROS  /  19.4517 N  70.6970 W</text>
+  </g>
+  <rect x=".5" y=".5" width="639" height="645" rx="16" fill="none" stroke="#24262c"/>
+  <text class="mono" x="34" y="296" font-size="16" letter-spacing="2" fill="#f0a23b">FEATURED  /  CO-FOUNDER</text>
+  <text class="sans ink" x="32" y="354" font-size="46" font-weight="700" letter-spacing="-1">Lanjo Technologies</text>
+  <text class="sans soft" x="34" y="400" font-size="23">The studio I co-founded in Santiago de los</text>
+  <text class="sans soft" x="34" y="433" font-size="23">Caballeros: cybersecurity, IT infrastructure,</text>
+  <text class="sans soft" x="34" y="466" font-size="23">web and custom software from one team that</text>
+  <text class="sans soft" x="34" y="499" font-size="23">builds the technology and knows how to attack</text>
+  <text class="sans soft" x="34" y="532" font-size="23">and defend it. I built the company site.</text>
+  <rect x="34" y="571" width="139" height="37" rx="18.5" fill="none" stroke="#24262c"/><text class="mono soft" x="103.5" y="595.5" font-size="17" text-anchor="middle">Next.js 16</text><rect x="181" y="571" width="118" height="37" rx="18.5" fill="none" stroke="#24262c"/><text class="mono soft" x="240" y="595.5" font-size="17" text-anchor="middle">React 19</text><rect x="307" y="571" width="150" height="37" rx="18.5" fill="none" stroke="#24262c"/><text class="mono soft" x="382" y="595.5" font-size="17" text-anchor="middle">Tailwind v4</text>
+  <path class="arrow" fill="none" stroke="#f0a23b" stroke-width="2.64" stroke-linecap="round" stroke-linejoin="round" d="M477 600.6L498.6 579M481.8 579H498.6V595.8"/>
+</svg>

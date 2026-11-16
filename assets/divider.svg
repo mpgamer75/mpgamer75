@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24" width="1200" height="24" aria-hidden="true">
-  <defs><linearGradient id="p" x1="0" x2="1"><stop offset="0" stop-color="#f0a23b" stop-opacity="0"/><stop offset=".8" stop-color="#f0a23b"/><stop offset="1" stop-color="#ffcf85"/></linearGradient></defs>
+  <style>.p { animation: p 3.2s ease-in-out infinite; } @keyframes p { 50% { opacity: .35; } } @media (prefers-reduced-motion: reduce) { .p { animation: none; } }</style>
   <path d="M0 12.5H1200" stroke="#8a8f98" stroke-opacity=".28"/>
-  <rect x="-180" y="11.5" width="180" height="2" fill="url(#p)"><animate attributeName="x" from="-180" to="1200" dur="5s" repeatCount="indefinite"/></rect>
-  <rect x="-5" y="8" width="9" height="9" fill="#f0a23b" transform="translate(600 0) rotate(45 0 12.5)"/>
+  <rect class="p" x="595.5" y="8" width="9" height="9" fill="#f0a23b" transform="rotate(45 600 12.5)"/>
 </svg>

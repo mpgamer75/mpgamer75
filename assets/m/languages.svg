@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 464" width="640" height="464" role="img" aria-labelledby="t d">
+  <title id="t">Languages across public repositories</title>
+  <desc id="d">Share of code by bytes: TypeScript 54.9%, Shell 14.7%, JavaScript 10.1%, Dart 7.4%, Python 6.6%, CSS 2.9%.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    .bar { transform-box: fill-box; transform-origin: 0 50%; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes grow { from { transform: scaleX(0); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <rect x=".5" y=".5" width="639" height="463" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <text class="mono muted" x="34" y="56" font-size="16" letter-spacing="2">LANGUAGES  /  SHARE OF BYTES</text>
+  
+  <text class="mono ink" x="34" y="118" font-size="22">TypeScript</text>
+  <rect x="204" y="107" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:0ms" x="204" y="107" width="316" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="118" font-size="21" text-anchor="end">54.9%</text>
+  <text class="mono ink" x="34" y="176" font-size="22">Shell</text>
+  <rect x="204" y="165" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:80ms" x="204" y="165" width="84.7" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="176" font-size="21" text-anchor="end">14.7%</text>
+  <text class="mono ink" x="34" y="234" font-size="22">JavaScript</text>
+  <rect x="204" y="223" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:160ms" x="204" y="223" width="58" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="234" font-size="21" text-anchor="end">10.1%</text>
+  <text class="mono ink" x="34" y="292" font-size="22">Dart</text>
+  <rect x="204" y="281" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:240ms" x="204" y="281" width="42.5" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="292" font-size="21" text-anchor="end">7.4%</text>
+  <text class="mono ink" x="34" y="350" font-size="22">Python</text>
+  <rect x="204" y="339" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:320ms" x="204" y="339" width="38.2" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="350" font-size="21" text-anchor="end">6.6%</text>
+  <text class="mono ink" x="34" y="408" font-size="22">CSS</text>
+  <rect x="204" y="397" width="316" height="8" rx="4" fill="#1a1c21"/>
+  <rect class="bar" style="animation-delay:400ms" x="204" y="397" width="16.5" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="408" font-size="21" text-anchor="end">2.9%</text>
+</svg>

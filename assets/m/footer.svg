@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 150" width="640" height="150" role="img" aria-labelledby="t d">
+  <title id="t">End of file</title>
+  <desc id="d">The first bytes of the hexdump above.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    .dot { animation: pulse 3s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".14" stop-color="#fff"/><stop offset=".86" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="mk"><rect width="640" height="150" fill="url(#edge)"/></mask>
+  </defs>
+  <rect x=".5" y=".5" width="639" height="149" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <g mask="url(#mk)"><text class="mono muted" x="320" y="58" font-size="20" text-anchor="middle" textLength="564" lengthAdjust="spacingAndGlyphs">43 68 61 72 6c 65 73 20 4c 61 6e 74 69 67 75 61</text></g>
+  <rect class="amber dot" x="315.5" y="92" width="9" height="9" transform="rotate(45 320 96.5)"/>
+  <text class="mono soft" x="298" y="102" font-size="15" letter-spacing="2" text-anchor="end">CHARLES L. J.</text>
+  <text class="mono muted" x="342" y="102" font-size="15" letter-spacing="2">PARIS  /  EOF</text>
+</svg>

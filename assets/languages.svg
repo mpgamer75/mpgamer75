@@ -11,36 +11,37 @@
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
     @keyframes fade { from { opacity: 0; } }
     @keyframes blink { 50% { opacity: 0; } }
-    @keyframes pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
     .bar { transform-box: fill-box; transform-origin: 0 50%; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
     @keyframes grow { from { transform: scaleX(0); } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
-  <rect x=".5" y=".5" width="1199" height="257" rx="16" fill="#0a0b0e" stroke="#24262c"/><rect x=".5" y=".5" width="1199" height="257" rx="16" fill="none" stroke-linecap="round" stroke="#f0a23b" stroke-width="5" opacity=".16" stroke-dasharray="202 2687"><animate attributeName="stroke-dashoffset" from="2889" to="0" dur="10s" repeatCount="indefinite"/></rect><rect x=".5" y=".5" width="1199" height="257" rx="16" fill="none" stroke-linecap="round" stroke="#ffcf85" stroke-width="1.4" stroke-dasharray="202 2687"><animate attributeName="stroke-dashoffset" from="2889" to="0" dur="10s" repeatCount="indefinite"/></rect>
+  <rect x=".5" y=".5" width="1199" height="257" rx="16" fill="#0a0b0e" stroke="#24262c"/>
   <text class="mono muted" x="56" y="58" font-size="14" letter-spacing="2">LANGUAGES  /  PUBLIC REPOSITORIES</text>
   <text class="mono muted" x="1144" y="58" font-size="14" letter-spacing="2" text-anchor="end">SHARE OF BYTES</text>
-  <text class="mono ink" x="56" y="111" font-size="16">TypeScript</text>
+  <text class="mono ink" x="56" y="112" font-size="16">TypeScript</text>
   <rect x="186" y="101" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:0ms" x="186" y="101" width="318" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="111" font-size="15" text-anchor="end">54.9%</text>
-  <text class="mono ink" x="56" y="157" font-size="16">Shell</text>
+  <text class="mono soft" x="568" y="112" font-size="15" text-anchor="end">54.9%</text>
+  <text class="mono ink" x="56" y="158" font-size="16">Shell</text>
   <rect x="186" y="147" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:80ms" x="186" y="147" width="85.2" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="157" font-size="15" text-anchor="end">14.7%</text>
-  <text class="mono ink" x="56" y="203" font-size="16">JavaScript</text>
+  <text class="mono soft" x="568" y="158" font-size="15" text-anchor="end">14.7%</text>
+  <text class="mono ink" x="56" y="204" font-size="16">JavaScript</text>
   <rect x="186" y="193" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:160ms" x="186" y="193" width="58.3" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="203" font-size="15" text-anchor="end">10.1%</text>
-  <text class="mono ink" x="632" y="111" font-size="16">Dart</text>
+  <text class="mono soft" x="568" y="204" font-size="15" text-anchor="end">10.1%</text>
+  <text class="mono ink" x="632" y="112" font-size="16">Dart</text>
   <rect x="762" y="101" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:240ms" x="762" y="101" width="42.8" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="111" font-size="15" text-anchor="end">7.4%</text>
-  <text class="mono ink" x="632" y="157" font-size="16">Python</text>
+  <text class="mono soft" x="1144" y="112" font-size="15" text-anchor="end">7.4%</text>
+  <text class="mono ink" x="632" y="158" font-size="16">Python</text>
   <rect x="762" y="147" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:320ms" x="762" y="147" width="38.4" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="157" font-size="15" text-anchor="end">6.6%</text>
-  <text class="mono ink" x="632" y="203" font-size="16">CSS</text>
+  <text class="mono soft" x="1144" y="158" font-size="15" text-anchor="end">6.6%</text>
+  <text class="mono ink" x="632" y="204" font-size="16">CSS</text>
   <rect x="762" y="193" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:400ms" x="762" y="193" width="16.6" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="203" font-size="15" text-anchor="end">2.9%</text>
+  <text class="mono soft" x="1144" y="204" font-size="15" text-anchor="end">2.9%</text>
 </svg>
