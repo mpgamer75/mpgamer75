@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-labelledby="t d">
   <title id="t">Trophies</title>
-  <desc id="d">COMMITS 492, rank AA; PULL REQUESTS 510, rank SS; EXPERIENCE 3.0 yrs, rank AA; LANGUAGES 18, rank SS; REPOSITORIES 16, rank A; STARS 2, rank C</desc>
+  <desc id="d">COMMITS 493, rank AA; PULL REQUESTS 43, rank A; EXPERIENCE 3.0 yrs, rank AA; LANGUAGES 18, rank SS; REPOSITORIES 16, rank A; STARS 2, rank C</desc>
   <style>
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
     .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
@@ -32,24 +32,24 @@
     <path d="M140.8 98L166.8 113L166.8 143L140.8 158L114.9 143L114.9 113Z" fill="none" stroke="#f0a23b" stroke-width="1" opacity=".35"/>
     <text class="sans" x="140.8" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#f0a23b" letter-spacing="1">AA</text>
     <text class="mono muted" x="140.8" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">COMMITS</text>
-    <text class="sans ink" x="140.8" y="232" font-size="25" font-weight="600" text-anchor="middle">492</text>
+    <text class="sans ink" x="140.8" y="232" font-size="25" font-weight="600" text-anchor="middle">493</text>
     <rect x="76" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
-    <rect class="prog" style="animation-delay:0.6s" x="76" y="248" width="126.2" height="4" rx="2" fill="#f0a23b"/>
+    <rect class="prog" style="animation-delay:0.6s" x="76" y="248" width="126.6" height="4" rx="2" fill="#f0a23b"/>
     <text class="mono muted" x="140.8" y="274" font-size="11.5" text-anchor="middle">AAA at 500</text>
   </g>
   <g class="tile" style="animation-delay:110ms">
     <rect x="239.7" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
     <clipPath id="h1"><path d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z"/></clipPath>
-    <path d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="#ffe2a6" opacity=".1"/>
+    <path d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="#f0a23b" opacity=".1"/>
     <g clip-path="url(#h1)"><rect x="244.5" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="244.5;424.5;424.5" keyTimes="0;.28;1" dur="4.5s" begin="1.5s" repeatCount="indefinite"/></rect></g>
-    <path class="hexl" style="animation-delay:0.4s" pathLength="1" d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="none" stroke="#ffe2a6" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M324.5 98L350.5 113L350.5 143L324.5 158L298.5 143L298.5 113Z" fill="none" stroke="#ffe2a6" stroke-width="1" opacity=".35"/>
-    <text class="sans" x="324.5" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#ffe2a6" letter-spacing="1">SS</text>
+    <path class="hexl" style="animation-delay:0.4s" pathLength="1" d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="none" stroke="#f0a23b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M324.5 98L350.5 113L350.5 143L324.5 158L298.5 143L298.5 113Z" fill="none" stroke="#f0a23b" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="324.5" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#f0a23b" letter-spacing="0">A</text>
     <text class="mono muted" x="324.5" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">PULL REQUESTS</text>
-    <text class="sans ink" x="324.5" y="232" font-size="25" font-weight="600" text-anchor="middle">510</text>
+    <text class="sans ink" x="324.5" y="232" font-size="25" font-weight="600" text-anchor="middle">43</text>
     <rect x="259.7" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
-    <rect class="prog" style="animation-delay:0.7s" x="259.7" y="248" width="5.2" height="4" rx="2" fill="#ffe2a6"/>
-    <text class="mono muted" x="324.5" y="274" font-size="11.5" text-anchor="middle">SSS at 1,000</text>
+    <rect class="prog" style="animation-delay:0.7s" x="259.7" y="248" width="99.4" height="4" rx="2" fill="#f0a23b"/>
+    <text class="mono muted" x="324.5" y="274" font-size="11.5" text-anchor="middle">AA at 50</text>
   </g>
   <g class="tile" style="animation-delay:220ms">
     <rect x="423.3" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
