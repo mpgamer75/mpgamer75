@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-labelledby="t d">
+  <title id="t">GitHub activity over the last 52 weeks</title>
+  <desc id="d">194 contributions in the last year: 152 commits and 42 pull requests across 16 public repositories. Busiest week 37.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    .bar { transform-box: fill-box; transform-origin: 50% 100%; animation: grow .8s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes grow { from { transform: scaleY(0); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <rect x=".5" y=".5" width="1199" height="339" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <text class="mono muted" x="56" y="58" font-size="14" letter-spacing="2">CONTRIBUTIONS  /  LAST 52 WEEKS</text>
+  <text class="mono muted" x="1144" y="58" font-size="14" letter-spacing="2" text-anchor="end">PER WEEK</text>
+  <text class="sans ink" x="53" y="160" font-size="88" font-weight="700" letter-spacing="-3">194</text>
+  <rect class="amber" x="56" y="184" width="56" height="3"/>
+  <text class="sans ink" x="56" y="240" font-size="28" font-weight="600">152</text>
+  <text class="mono muted" x="56" y="264" font-size="12.5" letter-spacing="1">COMMITS</text>
+  <text class="sans ink" x="176" y="240" font-size="28" font-weight="600">42</text>
+  <text class="mono muted" x="176" y="264" font-size="12.5" letter-spacing="1">PULL REQUESTS</text>
+  <text class="sans ink" x="342" y="240" font-size="28" font-weight="600">16</text>
+  <text class="mono muted" x="342" y="264" font-size="12.5" letter-spacing="1">REPOS</text>
+  <g>
+    <path class="bar" style="animation-delay:0ms" fill="#ffcf85" d="M442.1 262V109Q442.1 106 445.1 106H448.1Q451.1 106 451.1 109V262Z"/>
+    <path class="bar" style="animation-delay:16ms" fill="#f0a23b" d="M455.4 262V193.3Q455.4 190.3 458.4 190.3H461.4Q464.4 190.3 464.4 193.3V262Z"/>
+    <path class="bar" style="animation-delay:32ms" fill="#f0a23b" d="M468.7 262V243.9Q468.7 240.9 471.7 240.9H474.7Q477.7 240.9 477.7 243.9V262Z"/>
+    <path class="bar" style="animation-delay:48ms" fill="#f0a23b" d="M482 262V256.6Q482 253.6 485 253.6H488Q491 253.6 491 256.6V262Z"/>
+    <rect x="495.3" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="508.6" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="521.8" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:112ms" fill="#f0a23b" d="M535.1 262V248.1Q535.1 245.1 538.1 245.1H541.1Q544.1 245.1 544.1 248.1V262Z"/>
+    <rect x="548.4" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="561.7" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:160ms" fill="#f0a23b" d="M575 262V259.9Q575 257.8 577.1 257.8H581.9Q584 257.8 584 259.9V262Z"/>
+    <rect x="588.3" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="601.5" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="614.8" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="628.1" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="641.4" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="654.7" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="668" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:288ms" fill="#f0a23b" d="M681.2 262V222.8Q681.2 219.8 684.2 219.8H687.2Q690.2 219.8 690.2 222.8V262Z"/>
+    <rect x="694.5" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="707.8" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="721.1" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="734.4" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="747.7" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:384ms" fill="#f0a23b" d="M760.9 262V121.6Q760.9 118.6 763.9 118.6H766.9Q769.9 118.6 769.9 121.6V262Z"/>
+    <path class="bar" style="animation-delay:400ms" fill="#f0a23b" d="M774.2 262V239.7Q774.2 236.7 777.2 236.7H780.2Q783.2 236.7 783.2 239.7V262Z"/>
+    <rect x="787.5" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="800.8" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="814.1" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="827.3" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:480ms" fill="#f0a23b" d="M840.6 262V235.5Q840.6 232.5 843.6 232.5H846.6Q849.6 232.5 849.6 235.5V262Z"/>
+    <path class="bar" style="animation-delay:496ms" fill="#f0a23b" d="M853.9 262V248.1Q853.9 245.1 856.9 245.1H859.9Q862.9 245.1 862.9 248.1V262Z"/>
+    <path class="bar" style="animation-delay:512ms" fill="#f0a23b" d="M867.2 262V218.6Q867.2 215.6 870.2 215.6H873.2Q876.2 215.6 876.2 218.6V262Z"/>
+    <rect x="880.5" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="893.8" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:560ms" fill="#f0a23b" d="M907 262V206Q907 203 910 203H913Q916 203 916 206V262Z"/>
+    <path class="bar" style="animation-delay:576ms" fill="#f0a23b" d="M920.3 262V239.7Q920.3 236.7 923.3 236.7H926.3Q929.3 236.7 929.3 239.7V262Z"/>
+    <rect x="933.6" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="946.9" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="960.2" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="973.5" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:656ms" fill="#f0a23b" d="M986.7 262V189.1Q986.7 186.1 989.7 186.1H992.7Q995.7 186.1 995.7 189.1V262Z"/>
+    <path class="bar" style="animation-delay:672ms" fill="#f0a23b" d="M1000 262V259.9Q1000 257.8 1002.1 257.8H1006.9Q1009 257.8 1009 259.9V262Z"/>
+    <rect x="1013.3" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="1026.6" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:720ms" fill="#f0a23b" d="M1039.9 262V259.9Q1039.9 257.8 1042 257.8H1046.8Q1048.9 257.8 1048.9 259.9V262Z"/>
+    <rect x="1053.2" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="1066.4" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="1079.7" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="1093" y="260" width="9" height="2" fill="#24262c"/>
+    <rect x="1106.3" y="260" width="9" height="2" fill="#24262c"/>
+    <path class="bar" style="animation-delay:816ms" fill="#f0a23b" d="M1119.6 262V201.8Q1119.6 198.8 1122.6 198.8H1125.6Q1128.6 198.8 1128.6 201.8V262Z"/>
+    <path class="bar" style="animation-delay:832ms" fill="#f0a23b" d="M1132.9 262V259.9Q1132.9 257.8 1135 257.8H1139.8Q1141.9 257.8 1141.9 259.9V262Z"/>
+  </g>
+  <line class="rule" x1="440" y1="262.5" x2="1144" y2="262.5"/>
+  <text class="mono soft" x="446.6" y="94" font-size="13" text-anchor="start">peak week  37</text>
+  <text class="mono muted" x="482" y="286" font-size="13">Dec</text><text class="mono muted" x="535.1" y="286" font-size="13">Jan</text><text class="mono muted" x="588.3" y="286" font-size="13">Feb</text><text class="mono muted" x="641.4" y="286" font-size="13">Mar</text><text class="mono muted" x="707.8" y="286" font-size="13">Apr</text><text class="mono muted" x="760.9" y="286" font-size="13">May</text><text class="mono muted" x="827.3" y="286" font-size="13">Jun</text><text class="mono muted" x="880.5" y="286" font-size="13">Jul</text><text class="mono muted" x="933.6" y="286" font-size="13">Aug</text><text class="mono muted" x="1000" y="286" font-size="13">Sep</text><text class="mono muted" x="1053.2" y="286" font-size="13">Oct</text><text class="mono muted" x="1106.3" y="286" font-size="13">Nov</text>
+</svg>

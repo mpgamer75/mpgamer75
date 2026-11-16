@@ -1,108 +1,78 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-dark.svg" width="100%" alt="Charles Lantigua Jorge. Cybersecurity engineer and software engineer, Paris.">
-</picture>
+<a href="https://portfolio-six-sigma-3vo8pbx95b.vercel.app"><img src="assets/hero.svg" width="100%" alt="Charles Lantigua Jorge. Cybersecurity engineer and software engineer, Paris. Security tooling for the terminal, web and mobile software."></a>
 
+<p align="center">
+  <a href="https://portfolio-six-sigma-3vo8pbx95b.vercel.app"><img src="assets/btn-portfolio.svg" height="38" alt="Portfolio"></a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/charles-lantigua-jorge-2b63132a4/"><img src="assets/btn-linkedin.svg" height="38" alt="LinkedIn"></a>
+  &nbsp;
+  <a href="https://github.com/mpgamer75?tab=repositories"><img src="assets/btn-repositories.svg" height="38" alt="All repositories"></a>
+</p>
+
+<img src="assets/terminal.svg" width="100%" alt="Terminal running hexdump -C whoami: Charles Lantigua Jorge, cybersecurity engineer / software engineer, Paris, FR, github.com/mpgamer75.">
+
+<img src="assets/divider.svg" width="100%" alt="">
+
+## About
+
+<details open>
+<summary><b>English</b></summary>
 <br>
 
-I work on both sides of the same problem: I build software, and I build the tools that test it. Most of what is public here is security tooling written for the terminal, plus the web and mobile projects I ship alongside it.
+I work on both sides of the same problem: I build software, and I build the tools that test it. Most of what is public here is security tooling written for the terminal: a reconnaissance framework mapped to MITRE ATT&CK, an authenticated encryption toolkit on top of OpenSSL, and the automation I wrote for a SOC team. Alongside it I ship web and mobile products with Next.js and Flutter.
 
-<p>
-  <a href="https://portfolio-six-sigma-3vo8pbx95b.vercel.app"><b>Portfolio</b></a>
-  &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/charles-lantigua-jorge-2b63132a4/"><b>LinkedIn</b></a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/mpgamer75?tab=repositories"><b>All repositories</b></a>
-</p>
+</details>
+
+<details>
+<summary><b>Français</b></summary>
+<br>
+
+Je travaille des deux côtés du même problème : je construis des logiciels, et je construis les outils qui les mettent à l'épreuve. L'essentiel de ce qui est public ici, ce sont des outils de sécurité pour le terminal : un framework de reconnaissance aligné sur MITRE ATT&CK, une boîte à outils de chiffrement authentifié au-dessus d'OpenSSL, et l'automatisation que j'ai écrite pour une équipe SOC. En parallèle, je livre des produits web et mobiles avec Next.js et Flutter.
+
+</details>
+
+<details>
+<summary><b>Español</b></summary>
+<br>
+
+Trabajo en los dos lados del mismo problema: construyo software, y construyo las herramientas que lo ponen a prueba. La mayor parte de lo que es público aquí son herramientas de seguridad para la terminal: un framework de reconocimiento alineado con MITRE ATT&CK, un conjunto de herramientas de cifrado autenticado sobre OpenSSL, y la automatización que escribí para un equipo SOC. En paralelo, entrego productos web y móviles con Next.js y Flutter.
+
+</details>
+
+<img src="assets/divider.svg" width="100%" alt="">
 
 ## Selected work
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/security-scanner">security-scanner</a></h3>
-      <p>Reconnaissance tool for authorized penetration tests. Runs an OSINT, network and web
-      workflow, tags findings with MITRE ATT&amp;CK technique IDs, and writes a self-contained
-      offline HTML report with a Navigator layer.</p>
-      <sub><code>Bash</code> <code>Python</code> <code>Docker</code></sub>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/encryptor">encryptor</a></h3>
-      <p>Authenticated file encryption and X.509 toolkit in nothing but Bash and OpenSSL.
-      Encrypt-then-MAC container, scrypt key derivation, certificate recipients, and a format
-      you can decrypt by hand with stock <code>openssl</code>.</p>
-      <sub><code>Bash</code> <code>OpenSSL</code> <code>CI tested</code></sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/SOC_Automation">SOC automation</a></h3>
-      <p>Tooling written for the SOC team at Altice Dominicana during my internship: a desktop
-      file comparator for analyst exports, and a
-      <a href="https://github.com/mpgamer75/code-altice">report generator</a> that turns
-      failed-login logs into consolidated reports.</p>
-      <sub><code>Python</code> <code>TypeScript</code> <code>SQLite</code></sub>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/Portfolio">Portfolio</a></h3>
-      <p>My personal site. The skills section is an orbital map rendered in WebGL with
-      hand-written shaders and no textures.
-      <a href="https://portfolio-six-sigma-3vo8pbx95b.vercel.app">See it live.</a></p>
-      <sub><code>Next.js</code> <code>TypeScript</code> <code>WebGL</code></sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/dental-clinic">dental-clinic</a></h3>
-      <p>Production website for a dental clinic in Santiago de los Caballeros, Dominican Republic.
-      <a href="https://orthoprotesis-francis-valerio.vercel.app">See it live.</a></p>
-      <sub><code>TypeScript</code> <code>Vercel</code></sub>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/mpgamer75/Warhammer-40k-terminal-display">Imperial terminal</a></h3>
-      <p>The one I made for fun: a Warhammer 40K theme for zsh and bash with a dynamic prompt,
-      around fifty commands and five playable chapters.</p>
-      <sub><code>Zsh</code> <code>Bash</code> <code>ShellCheck</code></sub>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/mpgamer75/security-scanner"><img src="assets/card-security-scanner.svg" width="49%" alt="security-scanner: recon tool for authorized penetration tests. OSINT, network and web stages, findings mapped to MITRE ATT&CK, one offline HTML report. Bash, Python, Docker."></a>
+  <a href="https://github.com/mpgamer75/encryptor"><img src="assets/card-encryptor.svg" width="49%" alt="encryptor: authenticated file encryption and X.509 toolkit in nothing but Bash and OpenSSL. A format you can decrypt by hand."></a>
+  <a href="https://github.com/mpgamer75/SOC_Automation"><img src="assets/card-soc-automation.svg" width="49%" alt="SOC automation: tooling written for the SOC team at Altice Dominicana, an export comparator and a failed-login report generator. Python, TypeScript, SQLite."></a>
+  <a href="https://github.com/mpgamer75/Portfolio"><img src="assets/card-portfolio.svg" width="49%" alt="Portfolio: my personal site. The skills section is an orbital map rendered in WebGL with hand-written shaders. Next.js, TypeScript, WebGL."></a>
+  <a href="https://orthoprotesis-francis-valerio.vercel.app"><img src="assets/card-dental-clinic.svg" width="49%" alt="dental-clinic: production website for a dental clinic in Santiago de los Caballeros, Dominican Republic. TypeScript, Vercel."></a>
+  <a href="https://github.com/mpgamer75/Warhammer-40k-terminal-display"><img src="assets/card-imperial-terminal.svg" width="49%" alt="Imperial terminal: a Warhammer 40K theme for zsh and bash, around fifty commands and five playable chapters."></a>
+</p>
 
-Also here: [ps-installation](https://github.com/mpgamer75/ps-installation), PowerShell utilities that bring the commands I miss from Linux to Windows, and [medcare](https://github.com/mpgamer75/medcare), a Flutter app for tracking chronic-illness treatments.
+Also here: [code-altice](https://github.com/mpgamer75/code-altice), the failed-login report generator from the same SOC internship, [ps-installation](https://github.com/mpgamer75/ps-installation), PowerShell utilities that bring the commands I miss from Linux to Windows, and [medcare](https://github.com/mpgamer75/medcare), a Flutter app for tracking chronic-illness treatments.
 
-## Toolbox
+<img src="assets/divider.svg" width="100%" alt="">
 
-<table>
-  <tr><td><b>Security</b></td><td>Reconnaissance and OSINT · MITRE ATT&amp;CK · nmap · OpenSSL · X.509 and PKI · SOC tooling</td></tr>
-  <tr><td><b>Languages</b></td><td>Bash · Python · TypeScript · JavaScript · PowerShell · Dart · Java · C</td></tr>
-  <tr><td><b>Web and mobile</b></td><td>Next.js · React · Tailwind CSS · Flutter</td></tr>
-  <tr><td><b>Data</b></td><td>PostgreSQL · Supabase · Firebase · SQLite</td></tr>
-  <tr><td><b>Systems</b></td><td>Linux · Docker · GitHub Actions</td></tr>
-</table>
+## Stack
+
+<img src="assets/stack.svg" width="100%" alt="Security: recon and OSINT, MITRE ATT&CK, nmap, OpenSSL, X.509 and PKI, SOC tooling. Languages: Bash, Python, TypeScript, JavaScript, PowerShell, Dart, Java, C. Web and mobile: Next.js, React, Tailwind CSS, Flutter. Data: PostgreSQL, Supabase, Firebase, SQLite. Systems: Linux, Docker, GitHub Actions, Git, Vercel.">
+
+<img src="assets/divider.svg" width="100%" alt="">
 
 ## Activity
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/activity-light.svg">
-  <img src="assets/activity-dark.svg" width="100%" alt="Weekly GitHub contributions over the last 52 weeks.">
-</picture>
+<img src="assets/activity.svg" width="100%" alt="Weekly GitHub contributions over the last 52 weeks, with commit, pull request and repository counts.">
 
-<br>
+<img src="assets/languages.svg" width="100%" alt="Languages across my public repositories, by share of bytes.">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/languages-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/languages-light.svg">
-  <img src="assets/languages-dark.svg" width="100%" alt="Languages across my public repositories, by share of bytes.">
-</picture>
+<img src="assets/divider.svg" width="100%" alt="">
 
-<br>
+<img src="assets/footer.svg" width="100%" alt="">
 
-<sub>The panels on this page are plain SVG built by <a href="scripts/build.mjs">one script</a> and refreshed daily by a GitHub Action. The header is a real hexdump, so <code>xxd -r -p</code> will give it back to you:</sub>
-
-```
-436861726c6573204c616e7469677561204a6f7267650a6379626572736563757269747920656e67696e656572202f20
-736f66747761726520656e67696e6565720a50617269732c2046520a6769746875622e636f6d2f6d7067616d657237350a
-```
-
-<sub>On repeat: <a href="https://open.spotify.com/track/3sK8wGT43QFpWrvNQsrQya">DtMF</a>.</sub>
+<p align="center">
+  <sub>Every panel on this page is an SVG built by <a href="scripts/build.mjs">one script</a>; the activity ones are refreshed daily by a GitHub Action.<br>
+  The terminal shows a real hexdump, so <code>xxd -r -p</code> on the bytes in the footer gives the text back.<br>
+  On repeat: <a href="https://open.spotify.com/track/3sK8wGT43QFpWrvNQsrQya">DtMF</a>.</sub>
+</p>

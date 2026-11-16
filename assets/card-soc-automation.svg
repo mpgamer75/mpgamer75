@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 590 348" width="590" height="348" role="img" aria-labelledby="t d">
+  <title id="t">SOC automation</title>
+  <desc id="d">Tooling written for the SOC team at Altice Dominicana: an export comparator and a failed-login report generator.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    .tick { animation: tick 3.9s ease-in-out infinite; }
+    .pa { animation: pa 5s ease-in-out infinite; } .pb { opacity: 0; animation: pb 5s ease-in-out infinite; }
+    .halo { transform-box: fill-box; transform-origin: center; animation: halo 2.8s ease-out infinite; }
+    .sk { animation: pulse 2.6s ease-in-out infinite; }
+    .cyc { opacity: 0; animation: cyc 10s linear infinite; }
+    .cursor { animation: blink 1.1s steps(1) infinite; }
+    .arrow { animation: nudge 2.4s ease-in-out infinite; }
+    @keyframes tick { 0%, 100% { opacity: .35; } 12%, 30% { opacity: 1; } 45% { opacity: .35; } }
+    @keyframes pa { 0%, 22% { opacity: 1; } 30%, 78% { opacity: 0; } 86%, 100% { opacity: 1; } }
+    @keyframes pb { 0%, 22% { opacity: 0; } 30%, 78% { opacity: 1; } 86%, 100% { opacity: 0; } }
+    @keyframes halo { from { transform: scale(.6); opacity: .9; } to { transform: scale(2.2); opacity: 0; } }
+    @keyframes cyc { 0% { opacity: 0; } 2%, 18% { opacity: 1; } 20%, 100% { opacity: 0; } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    @media (prefers-reduced-motion: reduce) { .cyc.first { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs><clipPath id="band"><path d="M0 16A16 16 0 0 1 16 0H574A16 16 0 0 1 590 16V136H0Z"/></clipPath></defs>
+  <rect x=".5" y=".5" width="589" height="347" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <g clip-path="url(#band)">
+    <rect width="590" height="136" fill="#0d0e12"/>
+    <g><g><text class="mono" x="32" y="26" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:07  </tspan><tspan class="muted">auth  </tspan><tspan class="soft">login ok        user=m.reyes    src=10.4.2.11</tspan></text><text class="mono" x="32" y="50" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:09  </tspan><tspan class="amber">auth  </tspan><tspan class="hot">FAILED LOGIN    user=svc-backup src=10.4.2.19</tspan></text><text class="mono" x="32" y="74" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:09  </tspan><tspan class="amber">auth  </tspan><tspan class="hot">FAILED LOGIN    user=svc-backup src=10.4.2.19</tspan></text><text class="mono" x="32" y="98" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:12  </tspan><tspan class="muted">diff  </tspan><tspan class="soft">export_0611.xlsx  3 rows changed</tspan></text><text class="mono" x="32" y="122" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:15  </tspan><tspan class="muted">auth  </tspan><tspan class="soft">login ok        user=a.diaz     src=10.4.3.40</tspan></text><text class="mono" x="32" y="146" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:18  </tspan><tspan class="muted">rprt  </tspan><tspan class="soft">consolidated report written</tspan></text><text class="mono" x="32" y="170" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:07  </tspan><tspan class="muted">auth  </tspan><tspan class="soft">login ok        user=m.reyes    src=10.4.2.11</tspan></text><text class="mono" x="32" y="194" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:09  </tspan><tspan class="amber">auth  </tspan><tspan class="hot">FAILED LOGIN    user=svc-backup src=10.4.2.19</tspan></text><text class="mono" x="32" y="218" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:09  </tspan><tspan class="amber">auth  </tspan><tspan class="hot">FAILED LOGIN    user=svc-backup src=10.4.2.19</tspan></text><text class="mono" x="32" y="242" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:12  </tspan><tspan class="muted">diff  </tspan><tspan class="soft">export_0611.xlsx  3 rows changed</tspan></text><text class="mono" x="32" y="266" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:15  </tspan><tspan class="muted">auth  </tspan><tspan class="soft">login ok        user=a.diaz     src=10.4.3.40</tspan></text><text class="mono" x="32" y="290" font-size="13.5" xml:space="preserve"><tspan class="muted">02:14:18  </tspan><tspan class="muted">rprt  </tspan><tspan class="soft">consolidated report written</tspan></text>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -144" dur="11s" repeatCount="indefinite"/></g></g>
+  </g>
+  <path class="rule" d="M.5 136H589.5"/>
+  <rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke="#24262c"/>
+  <text class="mono amber" x="32" y="178" font-size="13" letter-spacing="2">03</text>
+  <text class="sans ink" x="64" y="181" font-size="25" font-weight="700" letter-spacing="-.4">SOC automation</text>
+  <path class="sa arrow" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M538 182L554 166M542 166H554V178"/>
+  <text class="sans soft" x="32" y="216" font-size="16.5">Tooling written for the SOC team at Altice Dominicana: an export</text>
+  <text class="sans soft" x="32" y="240" font-size="16.5">comparator and a failed-login report generator.</text>
+  <rect x="32" y="290" width="73" height="28" rx="14" fill="none" stroke="#24262c"/><text class="mono soft" x="68.5" y="308.5" font-size="13" text-anchor="middle">Python</text><rect x="113" y="290" width="106" height="28" rx="14" fill="none" stroke="#24262c"/><text class="mono soft" x="166" y="308.5" font-size="13" text-anchor="middle">TypeScript</text><rect x="227" y="290" width="73" height="28" rx="14" fill="none" stroke="#24262c"/><text class="mono soft" x="263.5" y="308.5" font-size="13" text-anchor="middle">SQLite</text>
+</svg>

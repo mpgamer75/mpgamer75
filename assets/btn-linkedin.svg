@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 46" width="158" height="46" role="img" aria-label="LinkedIn">
+  <style>.a { animation: n 2.4s ease-in-out infinite; } @keyframes n { 50% { transform: translate(3px, -3px); } } @media (prefers-reduced-motion: reduce) { .a { animation: none; } }</style>
+  <rect x=".75" y=".75" width="156.5" height="44.5" rx="22.25" fill="#0a0b0e" stroke="#f0a23b" stroke-width="1.5"/>
+  <text x="26" y="29" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="16" fill="#f3efe8" letter-spacing=".5">LinkedIn</text>
+  <path class="a" d="M120 29L132 17M123 17H132V26" fill="none" stroke="#f0a23b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
