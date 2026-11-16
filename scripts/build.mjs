@@ -62,8 +62,18 @@ ${body}
 `;
 }
 
+// A light that travels round the border of a panel.
+function beam(w, h, rx = 16) {
+  const p = Math.round(2 * (w + h - 4 * rx) + 2 * Math.PI * rx);
+  const dur = Math.round(p / 300);
+  const dash = `stroke-dasharray="${Math.round(p * 0.07)} ${p - Math.round(p * 0.07)}"`;
+  const anim = `<animate attributeName="stroke-dashoffset" from="${p}" to="0" dur="${dur}s" repeatCount="indefinite"/>`;
+  const rect = `x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="${rx}" fill="none" stroke-linecap="round"`;
+  return `<rect ${rect} stroke="${C.amber}" stroke-width="5" opacity=".16" ${dash}>${anim}</rect><rect ${rect} stroke="${C.hot}" stroke-width="1.4" ${dash}>${anim}</rect>`;
+}
+
 const panel = (w, h, rx = 16) =>
-  `<rect x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="${rx}" fill="${C.bg}" stroke="${C.line}"/>`;
+  `<rect x=".5" y=".5" width="${w - 1}" height="${h - 1}" rx="${rx}" fill="${C.bg}" stroke="${C.line}"/>${beam(w, h, rx)}`;
 
 // Monospace text on a fixed grid: every glyph gets its own x, so columns line
 // up whatever monospace font the viewer ends up with.
@@ -91,60 +101,107 @@ function wrap(text, max) {
 
 // ---------------------------------------------------------------- hero
 
+// Deterministic noise, so rebuilding does not change the file.
+function rng(seed) {
+  let s = seed;
+  return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+}
+
 function hero(jpeg) {
   const W = 1200;
   const H = 514;
   const X = 64;
-  const leds = [[946, 254, 26], [1051, 397, 30], [1093, 313, 18], [1120, 304, 18], [824, 78, 16], [864, 60, 16]];
+  const rand = rng(75);
   const lines = [
     'I build security tooling for the terminal.',
     'I ship web and mobile software.',
-    'Recon, applied cryptography, SOC automation.',
+    'Co-founder of Lanjo Technologies.',
   ];
   const meta = [
-    ['BASED IN', 'Paris, France'],
-    ['FOCUS', 'Offensive recon / applied crypto / SOC tooling'],
-    ['SPEAKS', 'EN / FR / ES'],
+    ['BASED IN', 'Paris, France', X],
+    ['CO-FOUNDER', 'Lanjo Technologies', X + 190],
+    ['FOCUS', 'Recon / applied crypto / SOC tooling', X + 430],
+    ['SPEAKS', 'EN / FR / ES', X + 830],
   ];
-  const metaX = [X, X + 210, X + 700];
+
+  // threat-map overlay, laid over the map on the monitor wall
+  const city = { par: [785, 112], sdq: [700, 166], nyc: [684, 138], sao: [722, 203], jnb: [806, 200], dxb: [838, 150], tyo: [892, 96], sgp: [876, 134], syd: [938, 207] };
+  const links = [['par', 'sdq'], ['par', 'nyc'], ['par', 'tyo'], ['par', 'jnb'], ['sdq', 'sao'], ['par', 'dxb'], ['dxb', 'sgp'], ['sgp', 'syd']];
+  const arcs = links
+    .map(([a, b], i) => {
+      const [x1, y1] = city[a];
+      const [x2, y2] = city[b];
+      const lift = Math.hypot(x2 - x1, y2 - y1) * 0.32;
+      const d = `M${x1} ${y1}Q${(x1 + x2) / 2} ${r1((y1 + y2) / 2 - lift)} ${x2} ${y2}`;
+      const dur = r1(2.2 + (i % 3) * 0.5);
+      const begin = r1(2.4 + i * 0.5);
+      return `<path class="arc" style="animation-delay:${r1(1.4 + i * 0.5)}s" pathLength="1" d="${d}"/>
+      <circle r="2.6" fill="#fff3d6" opacity="0"><animateMotion dur="${dur}s" begin="${begin}s" repeatCount="indefinite" path="${d}"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.85;1" dur="${dur}s" begin="${begin}s" repeatCount="indefinite"/></circle>`;
+    })
+    .join('\n      ');
+  const nodes = Object.entries(city)
+    .map(
+      ([k, [x, y]], i) =>
+        `<circle class="ping" style="animation-delay:${r1(i * 0.45)}s" cx="${x}" cy="${y}" r="9" fill="none" stroke="${C.hot}"/><circle cx="${x}" cy="${y}" r="${k === 'par' ? 4 : 2.6}" fill="${k === 'par' ? '#fff3d6' : C.hot}"/>`,
+    )
+    .join('\n      ');
+  const [px, py] = city.par;
+
+  // kicker: every character resolves out of noise
+  const kicker = 'CYBERSECURITY  x  SOFTWARE';
+  const pool = '#$%01<>/[]{}*+=?';
+  const cell = 13.2;
+  const decode = [...kicker]
+    .map((ch, i) => {
+      if (ch === ' ') return '';
+      const x = r1(X + i * cell);
+      const t0 = 0.4 + i * 0.05;
+      const noise = [0, 1, 2]
+        .map((k) => `<text class="mono muted sc" style="animation-delay:${r1(t0 + k * 0.09)}s" x="${x}" y="186" font-size="16">${esc(pool[Math.floor(rand() * pool.length)])}</text>`)
+        .join('');
+      return `${noise}<text class="mono amber fin" style="animation-delay:${r1(t0 + 0.27)}s" x="${x}" y="186" font-size="16">${ch}</text>`;
+    })
+    .join('');
+
+  const name = (cls) =>
+    `<text class="sans ${cls}" x="${X - 4}" y="262" font-size="74" font-weight="700" letter-spacing="-2.2">Charles Lantigua Jorge</text>`;
 
   const body = `  <defs>
     <clipPath id="r"><rect width="${W}" height="${H}" rx="18"/></clipPath>
+    <clipPath id="s1"><rect x="0" y="206" width="${W}" height="19"/></clipPath>
+    <clipPath id="s2"><rect x="0" y="238" width="${W}" height="15"/></clipPath>
     <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#050506" stop-opacity=".96"/>
-      <stop offset=".5" stop-color="#050506" stop-opacity=".72"/>
-      <stop offset=".8" stop-color="#050506" stop-opacity=".08"/>
+      <stop offset="0" stop-color="#050506" stop-opacity=".97"/>
+      <stop offset=".42" stop-color="#050506" stop-opacity=".8"/>
+      <stop offset=".7" stop-color="#050506" stop-opacity=".12"/>
       <stop offset="1" stop-color="#050506" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1">
-      <stop offset=".55" stop-color="#050506" stop-opacity="0"/>
-      <stop offset="1" stop-color="#050506" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#050506" stop-opacity="0"/>
+      <stop offset="1" stop-color="#050506" stop-opacity=".94"/>
     </linearGradient>
-    <linearGradient id="beam" x1="0" x2="1" y1="0" y2="0">
+    <linearGradient id="sweep" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" stop-color="${C.hot}" stop-opacity="0"/>
-      <stop offset=".85" stop-color="${C.hot}" stop-opacity=".16"/>
+      <stop offset=".85" stop-color="${C.hot}" stop-opacity=".12"/>
       <stop offset="1" stop-color="${C.hot}" stop-opacity=".34"/>
     </linearGradient>
-    <radialGradient id="led">
-      <stop offset="0" stop-color="#fff3d6" stop-opacity=".95"/>
-      <stop offset=".25" stop-color="${C.hot}" stop-opacity=".55"/>
-      <stop offset="1" stop-color="${C.amber}" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity=".28"/></pattern>
   </defs>
   <g clip-path="url(#r)">
     <rect width="${W}" height="${H}" fill="#050506"/>
     <g class="drift">
       <image width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/jpeg;base64,${jpeg}" href="data:image/jpeg;base64,${jpeg}"/>
-      ${leds
-        .map(
-          ([x, y, r], i) =>
-            `<circle class="led" style="animation-delay:${-i * 0.9}s;animation-duration:${3.2 + (i % 3) * 1.1}s" cx="${x}" cy="${y}" r="${r}" fill="url(#led)"/>`,
-        )
-        .join('\n      ')}
+      ${arcs}
+      ${nodes}
+      <g><circle cx="${px}" cy="${py}" r="17" fill="none" stroke="#fff3d6" stroke-width="1.2" stroke-dasharray="5 7"/><animateTransform attributeName="transform" type="rotate" from="0 ${px} ${py}" to="360 ${px} ${py}" dur="9s" repeatCount="indefinite"/></g>
+      <g><circle cx="${px}" cy="${py}" r="25" fill="none" stroke="${C.hot}" stroke-width="1" stroke-dasharray="2 12" opacity=".8"/><animateTransform attributeName="transform" type="rotate" from="360 ${px} ${py}" to="0 ${px} ${py}" dur="14s" repeatCount="indefinite"/></g>
+      <text class="mono" x="${px + 32}" y="${py - 14}" font-size="11" letter-spacing="1.5" fill="#fff3d6">PAR</text>
+      <text class="mono" x="${city.sdq[0] - 38}" y="${city.sdq[1] + 4}" font-size="11" letter-spacing="1.5" fill="${C.hot}">SDQ</text>
     </g>
+    <rect width="${W}" height="${H}" fill="url(#scan)"/>
     <rect width="${W}" height="${H}" fill="url(#shade)"/>
     <rect width="${W}" height="${H}" fill="url(#floor)"/>
-    <rect class="beam" x="-260" y="0" width="260" height="${H}" fill="url(#beam)"/>
+    <rect class="sweep" x="-260" y="0" width="260" height="${H}" fill="url(#sweep)"/>
 
     <g class="in" style="animation-delay:.1s">
       <rect class="amber" x="${X}" y="57" width="9" height="9"/>
@@ -152,54 +209,65 @@ function hero(jpeg) {
       <text class="mono muted" x="${X + 138}" y="67" font-size="15" letter-spacing="1.5">/  48.8566 N  2.3522 E</text>
     </g>
 
-    <text class="mono amber in" style="animation-delay:.35s" x="${X}" y="186" font-size="16" letter-spacing="4">CYBERSECURITY  x  SOFTWARE</text>
-    <text class="sans ink in" style="animation-delay:.5s" x="${X - 4}" y="262" font-size="74" font-weight="700" letter-spacing="-2.2">Charles Lantigua Jorge</text>
+    ${decode}
+    <g class="in" style="animation-delay:.5s">
+      <g class="jit">${name('ink')}</g>
+      <g class="gl1" clip-path="url(#s1)">${name('amber')}</g>
+      <g class="gl2" clip-path="url(#s2)">${name('hot')}</g>
+    </g>
     <rect class="amber underline" x="${X}" y="288" width="96" height="3"/>
 
-    ${lines
-      .map(
-        (l, i) =>
-          `<text class="sans soft rot${i ? '' : ' first'}" style="animation-delay:${1.2 + i * 4}s" x="${X}" y="338" font-size="27">${esc(l)}</text>`,
-      )
-      .join('\n    ')}
+    ${lines.map((l, i) => `<text class="sans soft rot${i ? '' : ' first'}" style="animation-delay:${1.2 + i * 4}s" x="${X}" y="338" font-size="27">${esc(l)}</text>`).join('\n    ')}
 
     <g class="in" style="animation-delay:1s">
-      <line class="rule" x1="${X}" y1="408" x2="${W - X}" y2="408" stroke-opacity=".9"/>
+      <line x1="${X}" y1="408" x2="${W - X}" y2="408" stroke="#3a3530"/>
       ${meta
         .map(
-          ([k, v], i) =>
-            `<text class="mono muted" x="${metaX[i]}" y="440" font-size="13" letter-spacing="2">${k}</text>
-      <text class="sans ink" x="${metaX[i]}" y="466" font-size="18">${esc(v)}</text>`,
+          ([k, v, x]) => `<text class="mono muted" x="${x}" y="440" font-size="13" letter-spacing="2">${k}</text>
+      <text class="sans ink" x="${x}" y="466" font-size="18">${esc(v)}</text>`,
         )
         .join('\n      ')}
     </g>
 
     <path class="sa" stroke-width="1.5" d="M24 44V24H44M${W - 44} 24H${W - 24}V44M24 ${H - 44}V${H - 24}H44M${W - 44} ${H - 24}H${W - 24}V${H - 44}" opacity=".75"/>
   </g>
-  <rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="18" fill="none" stroke="${C.line}"/>`;
+  <rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="18" fill="none" stroke="${C.line}"/>
+  ${beam(W, H, 18)}`;
 
   return svg(
     W,
     H,
     'Charles Lantigua Jorge',
-    'Cybersecurity engineer and software engineer based in Paris. Security tooling for the terminal, web and mobile software.',
+    'Cybersecurity engineer and software engineer based in Paris, co-founder of Lanjo Technologies. Security tooling for the terminal, web and mobile software.',
     body,
     `
-    .drift { transform-origin: 85% 50%; animation: drift 26s ease-in-out infinite alternate; }
-    .led { animation: pulse 3s ease-in-out infinite; }
-    .beam { animation: beam 9s cubic-bezier(.6,0,.3,1) infinite; }
+    .drift { transform-origin: 70% 40%; animation: drift 26s ease-in-out infinite alternate; }
+    .arc { fill: none; stroke: ${C.hot}; stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: arc 9s ease-in-out infinite; }
+    .ping { transform-box: fill-box; transform-origin: center; animation: ping 3.2s ease-out infinite; }
+    .sweep { animation: sweep 9s cubic-bezier(.6,0,.3,1) infinite; }
     .in { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+    .sc { opacity: 0; animation: on .09s linear; }
+    .fin { animation: fade .02s steps(1) both; }
+    .jit { animation: jit 7s steps(1) infinite; }
+    .gl1 { opacity: 0; animation: gl1 7s steps(1) infinite; }
+    .gl2 { opacity: 0; animation: gl2 7s steps(1) infinite; }
     .underline { transform-box: fill-box; transform-origin: 0 50%; animation: draw 1s cubic-bezier(.2,.8,.2,1) .9s both; }
     .rot { opacity: 0; animation: rot 12s linear infinite; }
     @keyframes drift { from { transform: scale(1); } to { transform: scale(1.07); } }
-    @keyframes beam { 0%, 55% { transform: translateX(0); } 100% { transform: translateX(${W + 300}px); } }
+    @keyframes arc { 0% { stroke-dashoffset: 1; opacity: 1; } 22%, 70% { stroke-dashoffset: 0; opacity: 1; } 86%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes ping { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+    @keyframes sweep { 0%, 55% { transform: translateX(0); } 100% { transform: translateX(${W + 300}px); } }
+    @keyframes on { from, to { opacity: 1; } }
     @keyframes draw { from { transform: scaleX(0); } }
+    @keyframes jit { 0%, 91%, 97%, 100% { transform: none; } 92% { transform: translateX(3px) skewX(-4deg); } 94% { transform: translateX(-2px); } 96% { transform: skewX(2deg); } }
+    @keyframes gl1 { 0%, 91%, 97%, 100% { opacity: 0; } 92% { opacity: .95; transform: translateX(-14px); } 94% { opacity: .95; transform: translateX(9px); } 96% { opacity: .95; transform: translateX(-4px); } }
+    @keyframes gl2 { 0%, 91%, 97%, 100% { opacity: 0; } 92% { opacity: .95; transform: translateX(12px); } 94% { opacity: .95; transform: translateX(-16px); } 96% { opacity: .95; transform: translateX(5px); } }
     @keyframes rot {
       0% { opacity: 0; transform: translateY(10px); }
       3%, 30% { opacity: 1; transform: none; }
       33.3%, 100% { opacity: 0; transform: translateY(-10px); }
     }
-    @media (prefers-reduced-motion: reduce) { .rot.first { opacity: 1; } .beam { display: none; } }`,
+    @media (prefers-reduced-motion: reduce) { .rot.first { opacity: 1; } .sweep { display: none; } .arc { stroke-dashoffset: 0; } }`,
   );
 }
 
@@ -352,7 +420,7 @@ const CARDS = [
   { file: 'encryptor', motif: 'cipher', title: 'encryptor', desc: 'Authenticated file encryption and X.509 toolkit in nothing but Bash and OpenSSL. A format you can decrypt by hand.', tags: ['Bash', 'OpenSSL', 'CI tested'] },
   { file: 'soc-automation', motif: 'logs', title: 'SOC automation', desc: 'Tooling written for the SOC team at Altice Dominicana: an export comparator and a failed-login report generator.', tags: ['Python', 'TypeScript', 'SQLite'] },
   { file: 'portfolio', motif: 'orbit', title: 'Portfolio', desc: 'My personal site. The skills section is an orbital map rendered in WebGL with hand-written shaders and no textures.', tags: ['Next.js', 'TypeScript', 'WebGL'] },
-  { file: 'dental-clinic', motif: 'browser', title: 'dental-clinic', desc: 'Production website for a dental clinic in Santiago de los Caballeros, Dominican Republic.', tags: ['TypeScript', 'Vercel'] },
+  { file: 'dental-clinic', motif: 'browser', title: 'dental-clinic', desc: 'Client work through Lanjo: the production website of a dental clinic in Santiago de los Caballeros.', tags: ['TypeScript', 'Vercel'] },
   { file: 'imperial-terminal', motif: 'prompt', title: 'Imperial terminal', desc: 'The one I made for fun: a Warhammer 40K theme for zsh and bash, around fifty commands and five playable chapters.', tags: ['Zsh', 'Bash', 'ShellCheck'] },
 ];
 
@@ -377,6 +445,7 @@ function card(c, n) {
   </g>
   <path class="rule" d="M.5 ${BAND}H${CW - 0.5}"/>
   <rect x=".5" y=".5" width="${CW - 1}" height="${H - 1}" rx="16" fill="none" stroke="${C.line}"/>
+  ${beam(CW, H)}
   <text class="mono amber" x="32" y="${BAND + 42}" font-size="13" letter-spacing="2">${String(n).padStart(2, '0')}</text>
   <text class="sans ink" x="64" y="${BAND + 45}" font-size="25" font-weight="700" letter-spacing="-.4">${esc(c.title)}</text>
   <path class="sa arrow" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M${CW - 52} ${BAND + 46}L${CW - 36} ${BAND + 30}M${CW - 48} ${BAND + 30}H${CW - 36}V${BAND + 42}"/>
@@ -445,22 +514,96 @@ function stack(icons) {
     .chip { animation: rise .6s cubic-bezier(.2,.8,.2,1) both; }`);
 }
 
+// ---------------------------------------------------------------- featured card
+
+function lanjo() {
+  const W = 1200;
+  const H = 320;
+  const X = 56;
+  const desc = wrap('The studio I co-founded in Santiago de los Caballeros: cybersecurity, IT infrastructure, web and custom software from one team that builds the technology and knows how to attack and defend it. I built the company site.', 64);
+  const services = ['CYBERSECURITY', 'IT INFRASTRUCTURE', 'WEB', 'SOFTWARE'];
+  let tx = X;
+  const tags = ['Next.js 16', 'React 19', 'Tailwind v4']
+    .map((t) => {
+      const w = Math.round(t.length * 8.6 + 28);
+      const out = `<rect x="${tx}" y="${H - 66}" width="${w}" height="30" rx="15" fill="none" stroke="${C.line}"/><text class="mono soft" x="${tx + w / 2}" y="${H - 46}" font-size="13.5" text-anchor="middle">${esc(t)}</text>`;
+      tx += w + 8;
+      return out;
+    })
+    .join('');
+  let sx = 700;
+  const svc = services
+    .map((s, i) => {
+      const out = `<text class="mono svc" style="animation-delay:${i * 1.5}s" x="${sx}" y="246" font-size="13" letter-spacing="2">${s}</text>`;
+      sx += s.length * 9.8 + 30;
+      return out;
+    })
+    .join('');
+  const word = (cls) =>
+    `<text class="sans ${cls}" x="${W - X - 4}" y="196" font-size="150" font-weight="800" letter-spacing="4" text-anchor="end">LANJO</text>`;
+
+  const body = `  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="${C.line}"/></pattern>
+    <linearGradient id="fadeL" x1="0" x2="1"><stop offset="0" stop-color="${C.bg}"/><stop offset="1" stop-color="${C.bg}" stop-opacity="0"/></linearGradient>
+    <clipPath id="pr"><rect width="${W}" height="${H}" rx="16"/></clipPath>
+  </defs>
+  ${panel(W, H)}
+  <g clip-path="url(#pr)">
+    <rect x="600" y="1" width="${W - 601}" height="${H - 2}" fill="url(#dots)"/>
+    <rect x="600" y="1" width="240" height="${H - 2}" fill="url(#fadeL)"/>
+    ${word('wfill')}
+    ${word('wline')}
+    <path class="rule" d="M700 222H${W - X}"/>
+    <rect class="amber run" x="700" y="221" width="70" height="2"/>
+    ${svc}
+    <text class="mono muted" x="${W - X}" y="282" font-size="12" letter-spacing="2" text-anchor="end">SANTIAGO DE LOS CABALLEROS  /  19.4517 N  70.6970 W</text>
+  </g>
+  <text class="mono amber" x="${X}" y="62" font-size="13" letter-spacing="2">FEATURED  /  CO-FOUNDER</text>
+  <text class="sans ink" x="${X - 2}" y="112" font-size="40" font-weight="700" letter-spacing="-1">Lanjo Technologies</text>
+  ${desc.map((l, i) => `<text class="sans soft" x="${X}" y="${150 + i * 26}" font-size="17.5">${esc(l)}</text>`).join('\n  ')}
+  ${tags}
+  <path class="sa arrow" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M${tx + 14} ${H - 42}L${tx + 32} ${H - 60}M${tx + 18} ${H - 60}H${tx + 32}V${H - 46}"/>`;
+
+  return svg(W, H, 'Lanjo Technologies', 'Co-founder. Cybersecurity, IT infrastructure, web and custom software studio in Santiago de los Caballeros. Company site built with Next.js 16, React 19 and Tailwind v4.', body, `
+    .wline { fill: none; stroke: ${C.amber}; stroke-width: 1.6; stroke-dasharray: 620; stroke-dashoffset: 620; animation: wline 10s ease-in-out infinite; }
+    .wfill { fill: ${C.amber}; opacity: 0; animation: wfill 10s ease-in-out infinite; }
+    .svc { fill: ${C.muted}; animation: svc 6s linear infinite; }
+    .run { animation: run 6s cubic-bezier(.6,0,.3,1) infinite; }
+    .arrow { animation: nudge 2.4s ease-in-out infinite; }
+    @keyframes wline { 0% { stroke-dashoffset: 620; opacity: 1; } 35%, 82% { stroke-dashoffset: 0; opacity: 1; } 94%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes wfill { 0%, 30% { opacity: 0; } 45%, 82% { opacity: .16; } 94%, 100% { opacity: 0; } }
+    @keyframes svc { 0%, 25%, 100% { fill: ${C.muted}; } 4%, 20% { fill: ${C.hot}; } }
+    @keyframes run { 0% { transform: translateX(0); } 100% { transform: translateX(${W - X - 770}px); } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    @media (prefers-reduced-motion: reduce) { .wline { stroke-dashoffset: 0; } .wfill { opacity: .16; } }`);
+}
+
 // ---------------------------------------------------------------- data
 
+const START_YEAR = 2023; // the account's first year
+
 async function fetchData(token) {
+  const years = [];
+  for (let y = START_YEAR; y <= new Date().getUTCFullYear(); y++) years.push(y);
+  const yearly = years
+    .map((y) => `y${y}: contributionsCollection(from: "${y}-01-01T00:00:00Z", to: "${y}-12-31T23:59:59Z") { totalCommitContributions }`)
+    .join('\n      ');
   const query = `query($login: String!) {
     user(login: $login) {
+      createdAt
+      pullRequests { totalCount }
       contributionsCollection {
         totalCommitContributions
         totalPullRequestContributions
         contributionCalendar {
           totalContributions
-          weeks { contributionDays { date contributionCount } }
+          weeks { contributionDays { date contributionCount contributionLevel } }
         }
       }
+      ${yearly}
       repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
         totalCount
-        nodes { languages(first: 20, orderBy: { field: SIZE, direction: DESC }) { edges { size node { name } } } }
+        nodes { stargazerCount languages(first: 20, orderBy: { field: SIZE, direction: DESC }) { edges { size node { name } } } }
       }
     }
   }`;
@@ -475,15 +618,23 @@ async function fetchData(token) {
   return json.data.user;
 }
 
+const LEVELS = ['NONE', 'FIRST_QUARTILE', 'SECOND_QUARTILE', 'THIRD_QUARTILE', 'FOURTH_QUARTILE'];
+
 function summarise(user) {
   const cc = user.contributionsCollection;
   const cal = cc.contributionCalendar;
-  const weeks = cal.weeks.map((w) => ({
-    start: w.contributionDays[0].date,
-    total: w.contributionDays.reduce((s, d) => s + d.contributionCount, 0),
-  }));
+  const weeks = cal.weeks.map((w) =>
+    w.contributionDays.map((d) => ({
+      date: d.date,
+      count: d.contributionCount,
+      level: LEVELS.indexOf(d.contributionLevel),
+      weekday: new Date(`${d.date}T00:00:00Z`).getUTCDay(),
+    })),
+  );
   const bytes = new Map();
+  let stars = 0;
   for (const repo of user.repositories.nodes) {
+    stars += repo.stargazerCount;
     for (const { size, node } of repo.languages.edges) bytes.set(node.name, (bytes.get(node.name) ?? 0) + size);
   }
   const all = [...bytes.values()].reduce((a, b) => a + b, 0);
@@ -491,6 +642,9 @@ function summarise(user) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 6)
     .map(([name, size]) => ({ name, share: size / all }));
+  const commitsAll = Object.entries(user)
+    .filter(([k]) => /^y\d{4}$/.test(k))
+    .reduce((sum, [, v]) => sum + v.totalCommitContributions, 0);
   return {
     total: cal.totalContributions,
     commits: cc.totalCommitContributions,
@@ -498,76 +652,175 @@ function summarise(user) {
     repos: user.repositories.totalCount,
     weeks,
     languages,
+    commitsAll,
+    prsAll: user.pullRequests.totalCount,
+    stars,
+    langCount: bytes.size,
+    years: (Date.now() - new Date(user.createdAt).getTime()) / (365.25 * 24 * 3600 * 1000),
   };
 }
 
-// ---------------------------------------------------------------- activity
+// ---------------------------------------------------------------- activity: contribution calendar
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const GREEN = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
 
 function activity(s) {
   const W = 1200;
-  const H = 340;
   const X = 56;
-  const plotL = 440;
-  const plotR = W - X;
-  const base = 262;
-  const plotH = 156;
-  const step = (plotR - plotL) / s.weeks.length;
-  const bw = Math.max(4, Math.round(step - 4));
-  const max = Math.max(1, ...s.weeks.map((w) => w.total));
-  const peak = s.weeks.findIndex((w) => w.total === max);
+  const gridL = X + 46;
+  const gridT = 246;
+  const step = (W - X - gridL) / s.weeks.length;
+  const size = Math.floor(step - 3.5);
+  const gridB = gridT + 7 * step;
+  const H = Math.round(gridB + 62);
+  const days = s.weeks.flat();
+  const best = days.reduce((a, b) => (b.count > a.count ? b : a));
 
-  const bars = s.weeks
-    .map((w, i) => {
-      const x = r1(plotL + i * step + (step - bw) / 2);
-      if (w.total === 0) return `<rect x="${x}" y="${base - 2}" width="${bw}" height="2" fill="${C.line}"/>`;
-      const h = Math.max(3, r1((w.total / max) * plotH));
-      const r = Math.min(3, h / 2);
-      const y = r1(base - h);
-      const d = `M${x} ${base}V${r1(y + r)}Q${x} ${y} ${r1(x + r)} ${y}H${r1(x + bw - r)}Q${x + bw} ${y} ${x + bw} ${r1(y + r)}V${base}Z`;
-      return `<path class="bar" style="animation-delay:${i * 16}ms" fill="${i === peak ? C.hot : C.amber}" d="${d}"/>`;
-    })
+  let bestXY = null;
+  const cells = s.weeks
+    .map((week, w) =>
+      week
+        .map((d) => {
+          const x = r1(gridL + w * step);
+          const y = r1(gridT + d.weekday * step);
+          if (d === best) bestXY = [x + size / 2, y + size / 2];
+          const delay = Math.round(w * 22 + d.weekday * 45);
+          const inner = `<rect${d.level === 4 ? ' class="glow"' : ''} x="${x}" y="${y}" width="${size}" height="${size}" rx="3.5" fill="${GREEN[d.level]}"${d.level === 0 ? ` stroke="#1f242c" stroke-width=".8"` : ''}/>`;
+          return `<g class="c" style="animation-delay:${delay}ms">${inner}</g>`;
+        })
+        .join(''),
+    )
     .join('\n    ');
 
   let last = -1;
   let lastX = -Infinity;
-  const ticks = s.weeks
-    .map((w, i) => {
-      const m = Number(w.start.slice(5, 7)) - 1;
-      const x = r1(plotL + i * step + (step - bw) / 2);
+  const months = s.weeks
+    .map((week, w) => {
+      const m = Number(week[0].date.slice(5, 7)) - 1;
+      const x = r1(gridL + w * step);
       if (m === last) return '';
       last = m;
-      if (i === 0 || x - lastX < 44 || x > plotR - 30) return '';
+      if (x - lastX < 50 || x > W - X - 30) return '';
       lastX = x;
-      return `<text class="mono muted" x="${x}" y="${base + 24}" font-size="13">${MONTHS[m]}</text>`;
+      return `<text class="mono muted" x="${x}" y="${gridT - 12}" font-size="13">${MONTHS[m]}</text>`;
     })
     .join('');
+  const dayLabels = [[1, 'Mon'], [3, 'Wed'], [5, 'Fri']]
+    .map(([d, l]) => `<text class="mono muted" x="${X}" y="${r1(gridT + d * step + size - 3)}" font-size="13">${l}</text>`)
+    .join('');
 
-  const peakX = r1(plotL + peak * step + step / 2);
-  const anchor = peakX > plotR - 60 ? 'end' : peakX < plotL + 60 ? 'start' : 'middle';
   const stat = (x, value, label) =>
-    `<text class="sans ink" x="${x}" y="240" font-size="28" font-weight="600">${value}</text>
-  <text class="mono muted" x="${x}" y="264" font-size="12.5" letter-spacing="1">${label}</text>`;
+    `<text class="sans ink" x="${x}" y="142" font-size="30" font-weight="600">${value}</text>
+  <text class="mono muted" x="${x}" y="168" font-size="12.5" letter-spacing="1.5">${label}</text>`;
+
+  const legendX = W - X - 5 * (size + 4) - 44;
+  const legend = `<text class="mono muted" x="${legendX - 12}" y="${r1(gridB + 30)}" font-size="13" text-anchor="end">Less</text>
+  ${GREEN.map((c, i) => `<rect x="${legendX + i * (size + 4)}" y="${r1(gridB + 17)}" width="${size}" height="${size}" rx="3.5" fill="${c}"${i === 0 ? ` stroke="#1f242c" stroke-width=".8"` : ''}/>`).join('')}
+  <text class="mono muted" x="${W - X}" y="${r1(gridB + 30)}" font-size="13" text-anchor="end">More</text>`;
+
+  const body = `  <defs>
+    <linearGradient id="scan" x1="0" x2="1"><stop offset="0" stop-color="#39d353" stop-opacity="0"/><stop offset=".9" stop-color="#39d353" stop-opacity=".22"/><stop offset="1" stop-color="#b6ffc6" stop-opacity=".9"/></linearGradient>
+    <clipPath id="grid"><rect x="${gridL - 4}" y="${gridT - 4}" width="${W - X - gridL + 8}" height="${r1(7 * step + 4)}"/></clipPath>
+  </defs>
+  ${panel(W, H)}
+  <text class="mono muted" x="${X}" y="58" font-size="14" letter-spacing="2">CONTRIBUTIONS  /  LAST 52 WEEKS</text>
+  <text class="mono muted" x="${W - X}" y="58" font-size="14" letter-spacing="2" text-anchor="end">${esc(days[0].date)}  &gt;  ${esc(days.at(-1).date)}</text>
+  <text class="sans ink" x="${X - 3}" y="168" font-size="88" font-weight="700" letter-spacing="-3">${s.total.toLocaleString('en-US')}</text>
+  <rect x="${X}" y="188" width="56" height="3" fill="#39d353"/>
+  ${stat(330, s.commits, 'COMMITS')}
+  ${stat(470, s.prs, 'PULL REQUESTS')}
+  ${stat(680, s.repos, 'PUBLIC REPOS')}
+  ${stat(880, best.count, `BEST DAY  ${best.date.slice(5)}`)}
+  ${months}
+  ${dayLabels}
+  <g>
+    ${cells}
+  </g>
+  ${bestXY ? `<circle class="pingc" cx="${r1(bestXY[0])}" cy="${r1(bestXY[1])}" r="${size}" fill="none" stroke="#b6ffc6" stroke-width="1.5"/>` : ''}
+  <g clip-path="url(#grid)"><rect class="scanbar" x="${gridL - 120}" y="${gridT - 4}" width="120" height="${r1(7 * step + 4)}" fill="url(#scan)"/></g>
+  ${legend}`;
+
+  return svg(W, H, 'GitHub contribution calendar, last 52 weeks', `${s.total} contributions in the last year: ${s.commits} commits and ${s.prs} pull requests across ${s.repos} public repositories. Best day ${best.count} on ${best.date}.`, body, `
+    .c { transform-box: fill-box; transform-origin: center; animation: pop .55s cubic-bezier(.2,1.4,.4,1) both; }
+    .glow { animation: glow 2.6s ease-in-out 2.4s infinite; }
+    .pingc { transform-box: fill-box; transform-origin: center; animation: pingc 2.8s ease-out 2.6s infinite both; }
+    .scanbar { animation: scanbar 7s cubic-bezier(.5,0,.4,1) 2.4s infinite both; }
+    @keyframes pop { from { transform: scale(0); opacity: 0; } }
+    @keyframes glow { 50% { fill: #9dffb0; } }
+    @keyframes pingc { from { transform: scale(.4); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
+    @keyframes scanbar { 0% { transform: translateX(0); } 60%, 100% { transform: translateX(${Math.round(W - X - gridL + 140)}px); } }
+    @media (prefers-reduced-motion: reduce) { .scanbar, .pingc { display: none; } }`);
+}
+
+// ---------------------------------------------------------------- trophies
+
+const TIERS = ['C', 'B', 'A', 'AA', 'AAA', 'S', 'SS', 'SSS'];
+
+function rank(value, steps) {
+  let i = -1;
+  while (i + 1 < steps.length && value >= steps[i + 1]) i++;
+  const next = i + 1 < steps.length ? steps[i + 1] : null;
+  const floor = i >= 0 ? steps[i] : 0;
+  return { tier: i, next, progress: next === null ? 1 : Math.max(0.04, (value - floor) / (next - floor)) };
+}
+
+function trophies(s) {
+  const W = 1200;
+  const H = 330;
+  const X = 56;
+  const gap = 14;
+  const items = [
+    ['COMMITS', s.commitsAll, s.commitsAll.toLocaleString('en-US'), [1, 10, 100, 200, 500, 1000, 2000, 4000]],
+    ['PULL REQUESTS', s.prsAll, s.prsAll.toLocaleString('en-US'), [1, 10, 20, 50, 100, 200, 500, 1000]],
+    ['EXPERIENCE', s.years, `${s.years.toFixed(1)} yrs`, [0.5, 1, 1.5, 2, 3, 5, 7.5, 10]],
+    ['LANGUAGES', s.langCount, s.langCount, [1, 2, 3, 5, 8, 10, 15, 20]],
+    ['REPOSITORIES', s.repos, s.repos, [1, 5, 10, 20, 30, 40, 50, 80]],
+    ['STARS', s.stars, s.stars, [1, 10, 30, 50, 100, 200, 700, 2000]],
+  ];
+  const tw = (W - 2 * X - gap * (items.length - 1)) / items.length;
+  const hex = (cx, cy, r) =>
+    'M' + Array.from({ length: 6 }, (_, k) => `${r1(cx + r * Math.cos((Math.PI / 180) * (60 * k - 90)))} ${r1(cy + r * Math.sin((Math.PI / 180) * (60 * k - 90)))}`).join('L') + 'Z';
+
+  const tiles = items
+    .map(([label, value, shown, steps], i) => {
+      const x = X + i * (tw + gap);
+      const cx = x + tw / 2;
+      const cy = 128;
+      const { tier, next, progress } = rank(value, steps);
+      const name = tier < 0 ? '-' : TIERS[tier];
+      const colour = tier >= 5 ? '#ffe2a6' : tier >= 2 ? C.amber : '#b07a45';
+      const barW = tw - 40;
+      const nextLabel = next === null ? 'top rank' : `${TIERS[tier + 1]} at ${next.toLocaleString('en-US')}`;
+      return `<g class="tile" style="animation-delay:${i * 110}ms">
+    <rect x="${r1(x)}" y="74" width="${r1(tw)}" height="${H - 74 - 34}" rx="12" fill="${C.raised}" stroke="${C.line}"/>
+    <clipPath id="h${i}"><path d="${hex(cx, cy, 38)}"/></clipPath>
+    <path d="${hex(cx, cy, 38)}" fill="${colour}" opacity=".1"/>
+    <g clip-path="url(#h${i})"><rect x="${r1(cx - 80)}" y="${cy - 45}" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="${r1(cx - 80)};${r1(cx + 100)};${r1(cx + 100)}" keyTimes="0;.28;1" dur="4.5s" begin="${r1(1.2 + i * 0.35)}s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:${r1(0.3 + i * 0.12)}s" pathLength="1" d="${hex(cx, cy, 38)}" fill="none" stroke="${colour}" stroke-width="2" stroke-linejoin="round"/>
+    <path d="${hex(cx, cy, 30)}" fill="none" stroke="${colour}" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="${r1(cx)}" y="${cy + (name.length > 2 ? 7 : 9)}" font-size="${name.length > 2 ? 20 : 26}" font-weight="800" text-anchor="middle" fill="${colour}" letter-spacing="${name.length > 1 ? 1 : 0}">${name}</text>
+    <text class="mono muted" x="${r1(cx)}" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">${label}</text>
+    <text class="sans ink" x="${r1(cx)}" y="232" font-size="25" font-weight="600" text-anchor="middle">${shown}</text>
+    <rect x="${r1(x + 20)}" y="248" width="${r1(barW)}" height="4" rx="2" fill="${C.track}"/>
+    <rect class="prog" style="animation-delay:${r1(0.6 + i * 0.12)}s" x="${r1(x + 20)}" y="248" width="${r1(barW * Math.min(1, progress))}" height="4" rx="2" fill="${colour}"/>
+    <text class="mono muted" x="${r1(cx)}" y="274" font-size="11.5" text-anchor="middle">${nextLabel}</text>
+  </g>`;
+    })
+    .join('\n  ');
 
   const body = `  ${panel(W, H)}
-  <text class="mono muted" x="${X}" y="58" font-size="14" letter-spacing="2">CONTRIBUTIONS  /  LAST 52 WEEKS</text>
-  <text class="mono muted" x="${plotR}" y="58" font-size="14" letter-spacing="2" text-anchor="end">PER WEEK</text>
-  <text class="sans ink" x="${X - 3}" y="160" font-size="88" font-weight="700" letter-spacing="-3">${s.total.toLocaleString('en-US')}</text>
-  <rect class="amber" x="${X}" y="184" width="56" height="3"/>
-  ${stat(X, s.commits, 'COMMITS')}
-  ${stat(X + 120, s.prs, 'PULL REQUESTS')}
-  ${stat(X + 286, s.repos, 'REPOS')}
-  <g>
-    ${bars}
-  </g>
-  <line class="rule" x1="${plotL}" y1="${base + 0.5}" x2="${plotR}" y2="${base + 0.5}"/>
-  <text class="mono soft" x="${peakX}" y="${base - plotH - 12}" font-size="13" text-anchor="${anchor}">peak week  ${max}</text>
-  ${ticks}`;
-
-  return svg(W, H, 'GitHub activity over the last 52 weeks', `${s.total} contributions in the last year: ${s.commits} commits and ${s.prs} pull requests across ${s.repos} public repositories. Busiest week ${max}.`, body, `
-    .bar { transform-box: fill-box; transform-origin: 50% 100%; animation: grow .8s cubic-bezier(.2,.8,.2,1) both; }
-    @keyframes grow { from { transform: scaleY(0); } }`);
+  <text class="mono muted" x="${X}" y="52" font-size="14" letter-spacing="2">TROPHIES  /  ALL TIME</text>
+  <text class="mono muted" x="${W - X}" y="52" font-size="14" letter-spacing="2" text-anchor="end">RANKED  C  &gt;  SSS</text>
+  ${tiles}`;
+  const desc = items.map(([l, v, shown, steps]) => `${l} ${shown}, rank ${TIERS[rank(v, steps).tier] ?? 'none'}`).join('; ');
+  return svg(W, H, 'Trophies', desc, body, `
+    .tile { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+    .hexl { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hexl 1.4s cubic-bezier(.4,0,.2,1) both; }
+    .prog { transform-box: fill-box; transform-origin: 0 50%; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes hexl { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes grow { from { transform: scaleX(0); } }
+    @media (prefers-reduced-motion: reduce) { .hexl { stroke-dashoffset: 0; } }`);
 }
 
 // ---------------------------------------------------------------- languages
@@ -660,6 +913,7 @@ const icons = JSON.parse(await readFile(new URL('icons.json', SRC), 'utf8'));
 await write('hero.svg', hero(jpeg));
 await write('terminal.svg', terminal());
 await write('stack.svg', stack(icons));
+await write('card-lanjo.svg', lanjo());
 await write('divider.svg', divider());
 await write('footer.svg', footer());
 for (const [i, c] of CARDS.entries()) await write(`card-${c.file}.svg`, card(c, i + 1));
@@ -673,6 +927,7 @@ if (!token) {
 } else {
   const stats = summarise(await fetchData(token));
   await write('activity.svg', activity(stats));
+  await write('trophies.svg', trophies(stats));
   await write('languages.svg', languages(stats));
   console.log(`Built for ${LOGIN}: ${stats.total} contributions, ${stats.languages.map((l) => l.name).join(', ')}`);
 }

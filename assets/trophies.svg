@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-labelledby="t d">
+  <title id="t">Trophies</title>
+  <desc id="d">COMMITS 492, rank AA; PULL REQUESTS 510, rank SS; EXPERIENCE 3.0 yrs, rank AA; LANGUAGES 18, rank SS; REPOSITORIES 16, rank A; STARS 2, rank C</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+    .ink { fill: #f3efe8; } .soft { fill: #b9b3a8; } .muted { fill: #7d786f; }
+    .amber { fill: #f0a23b; } .hot { fill: #ffcf85; } .faint { fill: #24262c; }
+    .rule { stroke: #24262c; fill: none; }
+    .sa { stroke: #f0a23b; fill: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes fade { from { opacity: 0; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    .tile { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+    .hexl { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hexl 1.4s cubic-bezier(.4,0,.2,1) both; }
+    .prog { transform-box: fill-box; transform-origin: 0 50%; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes hexl { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes grow { from { transform: scaleX(0); } }
+    @media (prefers-reduced-motion: reduce) { .hexl { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <rect x=".5" y=".5" width="1199" height="329" rx="16" fill="#0a0b0e" stroke="#24262c"/><rect x=".5" y=".5" width="1199" height="329" rx="16" fill="none" stroke-linecap="round" stroke="#f0a23b" stroke-width="5" opacity=".16" stroke-dasharray="212 2821"><animate attributeName="stroke-dashoffset" from="3033" to="0" dur="10s" repeatCount="indefinite"/></rect><rect x=".5" y=".5" width="1199" height="329" rx="16" fill="none" stroke-linecap="round" stroke="#ffcf85" stroke-width="1.4" stroke-dasharray="212 2821"><animate attributeName="stroke-dashoffset" from="3033" to="0" dur="10s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="56" y="52" font-size="14" letter-spacing="2">TROPHIES  /  ALL TIME</text>
+  <text class="mono muted" x="1144" y="52" font-size="14" letter-spacing="2" text-anchor="end">RANKED  C  &gt;  SSS</text>
+  <g class="tile" style="animation-delay:0ms">
+    <rect x="56" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h0"><path d="M140.8 90L173.7 109L173.7 147L140.8 166L107.9 147L107.9 109Z"/></clipPath>
+    <path d="M140.8 90L173.7 109L173.7 147L140.8 166L107.9 147L107.9 109Z" fill="#f0a23b" opacity=".1"/>
+    <g clip-path="url(#h0)"><rect x="60.8" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="60.8;240.8;240.8" keyTimes="0;.28;1" dur="4.5s" begin="1.2s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.3s" pathLength="1" d="M140.8 90L173.7 109L173.7 147L140.8 166L107.9 147L107.9 109Z" fill="none" stroke="#f0a23b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M140.8 98L166.8 113L166.8 143L140.8 158L114.9 143L114.9 113Z" fill="none" stroke="#f0a23b" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="140.8" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#f0a23b" letter-spacing="1">AA</text>
+    <text class="mono muted" x="140.8" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">COMMITS</text>
+    <text class="sans ink" x="140.8" y="232" font-size="25" font-weight="600" text-anchor="middle">492</text>
+    <rect x="76" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:0.6s" x="76" y="248" width="126.2" height="4" rx="2" fill="#f0a23b"/>
+    <text class="mono muted" x="140.8" y="274" font-size="11.5" text-anchor="middle">AAA at 500</text>
+  </g>
+  <g class="tile" style="animation-delay:110ms">
+    <rect x="239.7" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h1"><path d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z"/></clipPath>
+    <path d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="#ffe2a6" opacity=".1"/>
+    <g clip-path="url(#h1)"><rect x="244.5" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="244.5;424.5;424.5" keyTimes="0;.28;1" dur="4.5s" begin="1.5s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.4s" pathLength="1" d="M324.5 90L357.4 109L357.4 147L324.5 166L291.6 147L291.6 109Z" fill="none" stroke="#ffe2a6" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M324.5 98L350.5 113L350.5 143L324.5 158L298.5 143L298.5 113Z" fill="none" stroke="#ffe2a6" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="324.5" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#ffe2a6" letter-spacing="1">SS</text>
+    <text class="mono muted" x="324.5" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">PULL REQUESTS</text>
+    <text class="sans ink" x="324.5" y="232" font-size="25" font-weight="600" text-anchor="middle">510</text>
+    <rect x="259.7" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:0.7s" x="259.7" y="248" width="5.2" height="4" rx="2" fill="#ffe2a6"/>
+    <text class="mono muted" x="324.5" y="274" font-size="11.5" text-anchor="middle">SSS at 1,000</text>
+  </g>
+  <g class="tile" style="animation-delay:220ms">
+    <rect x="423.3" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h2"><path d="M508.2 90L541.1 109L541.1 147L508.2 166L475.3 147L475.3 109Z"/></clipPath>
+    <path d="M508.2 90L541.1 109L541.1 147L508.2 166L475.3 147L475.3 109Z" fill="#f0a23b" opacity=".1"/>
+    <g clip-path="url(#h2)"><rect x="428.2" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="428.2;608.2;608.2" keyTimes="0;.28;1" dur="4.5s" begin="1.9s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.5s" pathLength="1" d="M508.2 90L541.1 109L541.1 147L508.2 166L475.3 147L475.3 109Z" fill="none" stroke="#f0a23b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M508.2 98L534.1 113L534.1 143L508.2 158L482.2 143L482.2 113Z" fill="none" stroke="#f0a23b" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="508.2" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#f0a23b" letter-spacing="1">AA</text>
+    <text class="mono muted" x="508.2" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">EXPERIENCE</text>
+    <text class="sans ink" x="508.2" y="232" font-size="25" font-weight="600" text-anchor="middle">3.0 yrs</text>
+    <rect x="443.3" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:0.8s" x="443.3" y="248" width="126.7" height="4" rx="2" fill="#f0a23b"/>
+    <text class="mono muted" x="508.2" y="274" font-size="11.5" text-anchor="middle">AAA at 3</text>
+  </g>
+  <g class="tile" style="animation-delay:330ms">
+    <rect x="607" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h3"><path d="M691.8 90L724.7 109L724.7 147L691.8 166L658.9 147L658.9 109Z"/></clipPath>
+    <path d="M691.8 90L724.7 109L724.7 147L691.8 166L658.9 147L658.9 109Z" fill="#ffe2a6" opacity=".1"/>
+    <g clip-path="url(#h3)"><rect x="611.8" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="611.8;791.8;791.8" keyTimes="0;.28;1" dur="4.5s" begin="2.3s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.7s" pathLength="1" d="M691.8 90L724.7 109L724.7 147L691.8 166L658.9 147L658.9 109Z" fill="none" stroke="#ffe2a6" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M691.8 98L717.8 113L717.8 143L691.8 158L665.9 143L665.9 113Z" fill="none" stroke="#ffe2a6" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="691.8" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#ffe2a6" letter-spacing="1">SS</text>
+    <text class="mono muted" x="691.8" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">LANGUAGES</text>
+    <text class="sans ink" x="691.8" y="232" font-size="25" font-weight="600" text-anchor="middle">18</text>
+    <rect x="627" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:1s" x="627" y="248" width="77.8" height="4" rx="2" fill="#ffe2a6"/>
+    <text class="mono muted" x="691.8" y="274" font-size="11.5" text-anchor="middle">SSS at 20</text>
+  </g>
+  <g class="tile" style="animation-delay:440ms">
+    <rect x="790.7" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h4"><path d="M875.5 90L908.4 109L908.4 147L875.5 166L842.6 147L842.6 109Z"/></clipPath>
+    <path d="M875.5 90L908.4 109L908.4 147L875.5 166L842.6 147L842.6 109Z" fill="#f0a23b" opacity=".1"/>
+    <g clip-path="url(#h4)"><rect x="795.5" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="795.5;975.5;975.5" keyTimes="0;.28;1" dur="4.5s" begin="2.6s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.8s" pathLength="1" d="M875.5 90L908.4 109L908.4 147L875.5 166L842.6 147L842.6 109Z" fill="none" stroke="#f0a23b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M875.5 98L901.5 113L901.5 143L875.5 158L849.5 143L849.5 113Z" fill="none" stroke="#f0a23b" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="875.5" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#f0a23b" letter-spacing="0">A</text>
+    <text class="mono muted" x="875.5" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">REPOSITORIES</text>
+    <text class="sans ink" x="875.5" y="232" font-size="25" font-weight="600" text-anchor="middle">16</text>
+    <rect x="810.7" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:1.1s" x="810.7" y="248" width="77.8" height="4" rx="2" fill="#f0a23b"/>
+    <text class="mono muted" x="875.5" y="274" font-size="11.5" text-anchor="middle">AA at 20</text>
+  </g>
+  <g class="tile" style="animation-delay:550ms">
+    <rect x="974.3" y="74" width="169.7" height="222" rx="12" fill="#101216" stroke="#24262c"/>
+    <clipPath id="h5"><path d="M1059.2 90L1092.1 109L1092.1 147L1059.2 166L1026.3 147L1026.3 109Z"/></clipPath>
+    <path d="M1059.2 90L1092.1 109L1092.1 147L1059.2 166L1026.3 147L1026.3 109Z" fill="#b07a45" opacity=".1"/>
+    <g clip-path="url(#h5)"><rect x="979.2" y="83" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="979.2;1159.2;1159.2" keyTimes="0;.28;1" dur="4.5s" begin="3s" repeatCount="indefinite"/></rect></g>
+    <path class="hexl" style="animation-delay:0.9s" pathLength="1" d="M1059.2 90L1092.1 109L1092.1 147L1059.2 166L1026.3 147L1026.3 109Z" fill="none" stroke="#b07a45" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M1059.2 98L1085.1 113L1085.1 143L1059.2 158L1033.2 143L1033.2 113Z" fill="none" stroke="#b07a45" stroke-width="1" opacity=".35"/>
+    <text class="sans" x="1059.2" y="137" font-size="26" font-weight="800" text-anchor="middle" fill="#b07a45" letter-spacing="0">C</text>
+    <text class="mono muted" x="1059.2" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">STARS</text>
+    <text class="sans ink" x="1059.2" y="232" font-size="25" font-weight="600" text-anchor="middle">2</text>
+    <rect x="994.3" y="248" width="129.7" height="4" rx="2" fill="#1a1c21"/>
+    <rect class="prog" style="animation-delay:1.2s" x="994.3" y="248" width="14.4" height="4" rx="2" fill="#b07a45"/>
+    <text class="mono muted" x="1059.2" y="274" font-size="11.5" text-anchor="middle">B at 10</text>
+  </g>
+</svg>

@@ -29,7 +29,7 @@
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <defs><clipPath id="band"><path d="M0 16A16 16 0 0 1 16 0H574A16 16 0 0 1 590 16V136H0Z"/></clipPath></defs>
-  <rect x=".5" y=".5" width="589" height="347" rx="16" fill="#0a0b0e" stroke="#24262c"/>
+  <rect x=".5" y=".5" width="589" height="347" rx="16" fill="#0a0b0e" stroke="#24262c"/><rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke-linecap="round" stroke="#f0a23b" stroke-width="5" opacity=".16" stroke-dasharray="129 1720"><animate attributeName="stroke-dashoffset" from="1849" to="0" dur="6s" repeatCount="indefinite"/></rect><rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke-linecap="round" stroke="#ffcf85" stroke-width="1.4" stroke-dasharray="129 1720"><animate attributeName="stroke-dashoffset" from="1849" to="0" dur="6s" repeatCount="indefinite"/></rect>
   <g clip-path="url(#band)">
     <rect width="590" height="136" fill="#0d0e12"/>
     <g>
@@ -86,6 +86,7 @@
   </g>
   <path class="rule" d="M.5 136H589.5"/>
   <rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke="#24262c"/>
+  <rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke-linecap="round" stroke="#f0a23b" stroke-width="5" opacity=".16" stroke-dasharray="129 1720"><animate attributeName="stroke-dashoffset" from="1849" to="0" dur="6s" repeatCount="indefinite"/></rect><rect x=".5" y=".5" width="589" height="347" rx="16" fill="none" stroke-linecap="round" stroke="#ffcf85" stroke-width="1.4" stroke-dasharray="129 1720"><animate attributeName="stroke-dashoffset" from="1849" to="0" dur="6s" repeatCount="indefinite"/></rect>
   <text class="mono amber" x="32" y="178" font-size="13" letter-spacing="2">02</text>
   <text class="sans ink" x="64" y="181" font-size="25" font-weight="700" letter-spacing="-.4">encryptor</text>
   <path class="sa arrow" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M538 182L554 166M542 166H554V178"/>
