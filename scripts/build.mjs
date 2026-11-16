@@ -620,6 +620,22 @@ async function fetchData(token) {
 
 const LEVELS = ['NONE', 'FIRST_QUARTILE', 'SECOND_QUARTILE', 'THIRD_QUARTILE', 'FOURTH_QUARTILE'];
 
+// The token GitHub Actions provides only sees public activity. floors.json
+// holds counts measured with a token that also sees private repositories, so
+// a public-only run never reports less than what was already measured.
+const FLOORS_URL = new URL('floors.json', SRC);
+
+async function applyFloors(stats) {
+  const floors = JSON.parse(await readFile(FLOORS_URL, 'utf8'));
+  if (stats.prsAll > floors.pullRequests) {
+    floors.pullRequests = stats.prsAll;
+    floors.measured = new Date().toISOString().slice(0, 10);
+    await writeFile(FLOORS_URL, JSON.stringify(floors, null, 2) + String.fromCharCode(10));
+  }
+  stats.prsAll = Math.max(stats.prsAll, floors.pullRequests);
+  return stats;
+}
+
 function summarise(user) {
   const cc = user.contributionsCollection;
   const cal = cc.contributionCalendar;
@@ -925,7 +941,7 @@ const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 if (!token) {
   console.log('No GITHUB_TOKEN set: rebuilt the static panels only.');
 } else {
-  const stats = summarise(await fetchData(token));
+  const stats = await applyFloors(summarise(await fetchData(token)));
   await write('activity.svg', activity(stats));
   await write('trophies.svg', trophies(stats));
   await write('languages.svg', languages(stats));
