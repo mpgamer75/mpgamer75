@@ -472,11 +472,11 @@ function card(c, n) {
 // ---------------------------------------------------------------- stack
 
 const STACK = [
-  ['SECURITY', [['Recon / OSINT'], ['MITRE ATT&CK'], ['nmap'], ['OpenSSL'], ['X.509 / PKI'], ['SOC tooling']]],
-  ['LANGUAGES', [['Bash', 'gnubash'], ['Python', 'python'], ['TypeScript', 'typescript'], ['JavaScript', 'javascript'], ['PowerShell'], ['Dart', 'dart'], ['Java', 'openjdk'], ['C', 'c']]],
-  ['WEB AND MOBILE', [['Next.js', 'nextdotjs'], ['React', 'react'], ['Tailwind CSS', 'tailwindcss'], ['Flutter', 'flutter']]],
-  ['DATA', [['PostgreSQL', 'postgresql'], ['Supabase', 'supabase'], ['Firebase', 'firebase'], ['SQLite', 'sqlite']]],
-  ['SYSTEMS', [['Linux', 'linux'], ['Docker', 'docker'], ['GitHub Actions', 'githubactions'], ['Git', 'git'], ['Vercel', 'vercel']]],
+  ['SECURITY', [['Recon / OSINT', null, '#f0a23b'], ['MITRE ATT&CK', null, '#ff5a5f'], ['nmap', null, '#4c9aff'], ['OpenSSL', null, '#ff8a65'], ['X.509 / PKI', null, '#b48cff'], ['SOC tooling', null, '#3fcf8e']]],
+  ['LANGUAGES', [['Bash', 'gnubash', '#4eaa25'], ['Python', 'python', '#4b8bbe'], ['TypeScript', 'typescript', '#3178c6'], ['JavaScript', 'javascript', '#f7df1e'], ['PowerShell', null, '#5391fe'], ['Dart', 'dart', '#29b6f6'], ['Java', 'openjdk', '#f89820'], ['C', 'c', '#a8b9cc']]],
+  ['WEB AND MOBILE', [['Next.js', 'nextdotjs', '#ffffff'], ['React', 'react', '#61dafb'], ['Tailwind CSS', 'tailwindcss', '#38bdf8'], ['Flutter', 'flutter', '#54c5f8']]],
+  ['DATA', [['PostgreSQL', 'postgresql', '#5a8dee'], ['Supabase', 'supabase', '#3fcf8e'], ['Firebase', 'firebase', '#ffca28'], ['SQLite', 'sqlite', '#7ec8f0']]],
+  ['SYSTEMS', [['Linux', 'linux', '#fcc624'], ['Docker', 'docker', '#2496ed'], ['GitHub Actions', 'githubactions', '#2088ff'], ['Git', 'git', '#f05032'], ['Vercel', 'vercel', '#ffffff']]],
 ];
 
 function stack(icons) {
@@ -492,16 +492,16 @@ function stack(icons) {
   for (const [label, items] of STACK) {
     let x = chipX;
     const rowTop = y;
-    for (const [name, icon] of items) {
+    for (const [name, icon, colour] of items) {
       const w = Math.round(46 + name.length * 9.7 + 18);
       if (x + w > W - X) {
         x = chipX;
         y += chipH + 10;
       }
       const glyph = icon
-        ? `<path transform="translate(${x + 15} ${y + 12}) scale(${20 / 24})" fill="${C.ink}" d="${icons[icon]}"/>`
-        : `<rect x="${x + 19}" y="${y + 16}" width="12" height="12" fill="none" stroke="${C.amber}" stroke-width="1.5" transform="rotate(45 ${x + 25} ${y + 22})"/>`;
-      out.push(`<g class="chip" style="animation-delay:${n++ * 45}ms"><rect x="${x}" y="${y}" width="${w}" height="${chipH}" rx="10" fill="${C.raised}" stroke="${C.line}"/>${glyph}<text class="mono ink" x="${x + 46}" y="${y + 27.5}" font-size="16">${esc(name)}</text></g>`);
+        ? `<path transform="translate(${x + 15} ${y + 12}) scale(${20 / 24})" fill="${colour}" d="${icons[icon]}"/>`
+        : `<rect x="${x + 19}" y="${y + 16}" width="12" height="12" fill="${colour}" fill-opacity=".25" stroke="${colour}" stroke-width="1.5" transform="rotate(45 ${x + 25} ${y + 22})"/>`;
+      out.push(`<g class="chip" style="animation-delay:${n++ * 45}ms"><rect x="${x}" y="${y}" width="${w}" height="${chipH}" rx="10" fill="${C.raised}" stroke="${C.line}"/><rect x="${x}" y="${y}" width="${w}" height="${chipH}" rx="10" fill="${colour}" fill-opacity=".05" stroke="${colour}" stroke-opacity=".42"/>${glyph}<text class="mono ink" x="${x + 46}" y="${y + 27.5}" font-size="16">${esc(name)}</text></g>`);
       x += w + 10;
     }
     out.push(`<text class="mono muted" x="${X}" y="${rowTop + 27}" font-size="13" letter-spacing="2">${label}</text>`);
@@ -578,6 +578,131 @@ function lanjo() {
     @media (prefers-reduced-motion: reduce) { .wline { stroke-dashoffset: 0; } .wfill { opacity: .16; } }`);
 }
 
+// ---------------------------------------------------------------- Mi SaludRD card
+
+function saludrd(logo) {
+  const W = 1200;
+  const H = 320;
+  const X = 56;
+  const TEAL = '#4fd1d9';
+  const BLUE = '#2f7fd6';
+  const desc = wrap('Lanjo\'s own product, in beta: a digital health platform for the Dominican Republic. Patients book appointments with verified professionals; doctors get scheduling, clinical records and modules per specialty.', 64);
+  let tx = X;
+  const tags = ['Next.js', 'Flutter', 'Supabase', 'Stripe']
+    .map((t) => {
+      const w = Math.round(t.length * 8.6 + 28);
+      const out = `<rect x="${tx}" y="${H - 66}" width="${w}" height="30" rx="15" fill="none" stroke="${C.line}"/><text class="mono soft" x="${tx + w / 2}" y="${H - 46}" font-size="13.5" text-anchor="middle">${esc(t)}</text>`;
+      tx += w + 8;
+      return out;
+    })
+    .join('');
+  const cx = 930;
+  const cy = 150;
+  const ecg = `M640 ${cy}H742l10 -8 10 8h20l8 16 12 -70 14 96 10 -42h22M1012 ${cy}h20l8 16 12 -70 14 96 10 -42h22l10 -8 10 8H${W - X}`;
+
+  const body = `  <defs>
+    <clipPath id="pr"><rect width="${W}" height="${H}" rx="16"/></clipPath>
+    <radialGradient id="halo"><stop offset="0" stop-color="${TEAL}" stop-opacity=".22"/><stop offset="1" stop-color="${TEAL}" stop-opacity="0"/></radialGradient>
+  </defs>
+  ${panel(W, H)}
+  <g clip-path="url(#pr)">
+    <circle cx="${cx}" cy="${cy}" r="170" fill="url(#halo)"/>
+    <path d="${ecg}" fill="none" stroke="${C.line}" stroke-width="1.5" stroke-linejoin="round"/>
+    <path class="ecg" pathLength="1" d="${ecg}" fill="none" stroke="${TEAL}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle class="ring" cx="${cx}" cy="${cy}" r="62" fill="none" stroke="${TEAL}" stroke-width="1.5"/>
+    <circle class="ring" style="animation-delay:1.5s" cx="${cx}" cy="${cy}" r="62" fill="none" stroke="${BLUE}" stroke-width="1.5"/>
+    <circle cx="${cx}" cy="${cy}" r="62" fill="#0d1218" stroke="${C.line}"/>
+    <image class="beat" x="${cx - 66}" y="${cy - 66}" width="132" height="132" xlink:href="data:image/png;base64,${logo}" href="data:image/png;base64,${logo}"/>
+    <text class="mono muted" x="${W - X}" y="282" font-size="12" letter-spacing="2" text-anchor="end">MI-SALUDRD.COM  /  REPUBLICA DOMINICANA</text>
+  </g>
+  <text class="mono" x="${X}" y="62" font-size="13" letter-spacing="2" fill="${TEAL}">PRODUCT  /  LANJO TECHNOLOGIES</text>
+  <text class="sans ink" x="${X - 2}" y="112" font-size="40" font-weight="700" letter-spacing="-1">Mi SaludRD</text>
+  ${desc.map((l, i) => `<text class="sans soft" x="${X}" y="${150 + i * 26}" font-size="17.5">${esc(l)}</text>`).join('\n  ')}
+  ${tags}
+  <path class="arrow" fill="none" stroke="${TEAL}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M${tx + 14} ${H - 42}L${tx + 32} ${H - 60}M${tx + 18} ${H - 60}H${tx + 32}V${H - 46}"/>`;
+
+  return svg(W, H, 'Mi SaludRD', 'Digital health platform for the Dominican Republic, built and operated by Lanjo Technologies. Next.js, Flutter, Supabase, Stripe.', body, `
+    .ecg { stroke-dasharray: .22 .78; animation: ecg 3.2s linear infinite; }
+    .ring { transform-box: fill-box; transform-origin: center; animation: ring 3s ease-out infinite; }
+    .beat { transform-box: fill-box; transform-origin: center; animation: beat 1.6s ease-in-out infinite; }
+    .arrow { animation: nudge 2.4s ease-in-out infinite; }
+    @keyframes ecg { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
+    @keyframes beat { 0%, 30%, 100% { transform: scale(1); } 12% { transform: scale(1.08); } 22% { transform: scale(.98); } }
+    @keyframes nudge { 50% { transform: translate(3px, -3px); } }
+    @media (prefers-reduced-motion: reduce) { .ecg { stroke-dasharray: none; } .ring { display: none; } }`);
+}
+
+// ---------------------------------------------------------------- about
+
+const ABOUT = {
+  en: {
+    kicker: 'ABOUT',
+    h1: 'I build software,',
+    h2: 'and the tools that test it.',
+    para: 'Most of what is public here is security tooling for the terminal: a recon framework mapped to MITRE ATT&CK, an authenticated encryption toolkit on top of OpenSSL, and the automation I wrote for a SOC team. Alongside it I ship web and mobile products, and I co-founded Lanjo Technologies.',
+    rows: [['ROLE', 'Cybersecurity and software engineer'], ['COMPANY', 'Lanjo Technologies, co-founder'], ['BASED IN', 'Paris, France'], ['WORKS ON', 'Recon, applied crypto, SOC tooling'], ['SHIPS WITH', 'Bash, Python, Next.js, Flutter'], ['SPEAKS', 'English, French, Spanish']],
+  },
+  fr: {
+    kicker: 'A PROPOS',
+    h1: 'Je construis des logiciels,',
+    h2: 'et les outils qui les testent.',
+    para: 'L\'essentiel de ce qui est public ici, ce sont des outils de sécurité pour le terminal : un framework de reconnaissance aligné sur MITRE ATT&CK, une boîte à outils de chiffrement authentifié au-dessus d\'OpenSSL, et l\'automatisation écrite pour une équipe SOC. En parallèle, je livre des produits web et mobiles, et j\'ai cofondé Lanjo Technologies.',
+    rows: [['ROLE', 'Ingénieur cybersécurité et logiciel'], ['ENTREPRISE', 'Lanjo Technologies, cofondateur'], ['BASE A', 'Paris, France'], ['TRAVAILLE SUR', 'Recon, crypto appliquée, outils SOC'], ['LIVRE AVEC', 'Bash, Python, Next.js, Flutter'], ['LANGUES', 'Anglais, français, espagnol']],
+  },
+  es: {
+    kicker: 'SOBRE MI',
+    h1: 'Construyo software,',
+    h2: 'y lo que lo pone a prueba.',
+    para: 'La mayor parte de lo que es público aquí son herramientas de seguridad para la terminal: un framework de reconocimiento alineado con MITRE ATT&CK, un conjunto de herramientas de cifrado autenticado sobre OpenSSL, y la automatización que escribí para un equipo SOC. En paralelo entrego productos web y móviles, y cofundé Lanjo Technologies.',
+    rows: [['ROL', 'Ingeniero de ciberseguridad y software'], ['EMPRESA', 'Lanjo Technologies, cofundador'], ['BASE', 'París, Francia'], ['TRABAJA EN', 'Recon, cripto aplicada, SOC'], ['ENTREGA CON', 'Bash, Python, Next.js, Flutter'], ['IDIOMAS', 'Inglés, francés, español']],
+  },
+};
+
+function about(lang) {
+  const t = ABOUT[lang];
+  const W = 1200;
+  const X = 56;
+  const RX = 668;
+  const rowH = 46;
+  const rowsTop = 86;
+  const para = wrap(t.para, 60);
+  const H = Math.max(rowsTop + t.rows.length * rowH + 44, 226 + para.length * 27 + 40);
+  const rows = t.rows
+    .map(([k, v], i) => {
+      const y = rowsTop + i * rowH;
+      return `<g class="row" style="animation-delay:${r1(0.5 + i * 0.12)}s">
+    <text class="mono muted" x="${RX + 20}" y="${y + 29}" font-size="12" letter-spacing="2">${esc(k)}</text>
+    <text class="sans ink" x="${RX + 158}" y="${y + 30}" font-size="16">${esc(v)}</text>
+    <path class="rule" d="M${RX} ${y + rowH + 0.5}H${W - X}" stroke-opacity=".7"/>
+  </g>`;
+    })
+    .join('\n  ');
+
+  const body = `  <defs>
+    <linearGradient id="hl" x1="0" x2="1"><stop offset="0" stop-color="${C.amber}" stop-opacity=".16"/><stop offset="1" stop-color="${C.amber}" stop-opacity="0"/></linearGradient>
+    <linearGradient id="wipe" x1="0" x2="1"><stop offset="0" stop-color="${C.amber}"/><stop offset="1" stop-color="${C.hot}"/></linearGradient>
+  </defs>
+  ${panel(W, H)}
+  <rect class="amber bar" x="${X}" y="86" width="3" height="${H - 86 - 44}"/>
+  <text class="mono amber in" x="${X + 24}" y="100" font-size="13" letter-spacing="3">${esc(t.kicker)}</text>
+  <text class="sans ink in" style="animation-delay:.15s" x="${X + 22}" y="152" font-size="38" font-weight="700" letter-spacing="-1">${esc(t.h1)}</text>
+  <text class="sans in" style="animation-delay:.3s" x="${X + 22}" y="198" font-size="38" font-weight="700" letter-spacing="-1" fill="url(#wipe)">${esc(t.h2)}</text>
+  ${para.map((l, i) => `<text class="sans soft in" style="animation-delay:${r1(0.45 + i * 0.07)}s" x="${X + 24}" y="${244 + i * 27}" font-size="17">${esc(l)}</text>`).join('\n  ')}
+  <path class="rule" d="M${RX} ${rowsTop + 0.5}H${W - X}" stroke-opacity=".7"/>
+  <g class="hl"><rect x="${RX}" y="${rowsTop + 1}" width="${W - X - RX}" height="${rowH - 1}" fill="url(#hl)"/><rect class="amber" x="${RX}" y="${rowsTop + 1}" width="3" height="${rowH - 1}"/></g>
+  ${rows}`;
+
+  return svg(W, H, t.kicker, `${t.h1} ${t.h2} ${t.para} ${t.rows.map(([k, v]) => `${k}: ${v}`).join('. ')}.`, body, `
+    .in { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+    .row { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+    .bar { transform-box: fill-box; transform-origin: 50% 0; animation: barin 1.1s cubic-bezier(.2,.8,.2,1) both; }
+    .hl { animation: hl ${t.rows.length * 1.6}s steps(${t.rows.length}) 1.4s infinite both; }
+    @keyframes barin { from { transform: scaleY(0); } }
+    @keyframes hl { from { transform: translateY(0); } to { transform: translateY(${t.rows.length * rowH}px); } }
+    @media (prefers-reduced-motion: reduce) { .hl { display: none; } }`);
+}
+
 // ---------------------------------------------------------------- data
 
 const START_YEAR = 2023; // the account's first year
@@ -586,12 +711,14 @@ async function fetchData(token) {
   const years = [];
   for (let y = START_YEAR; y <= new Date().getUTCFullYear(); y++) years.push(y);
   const yearly = years
-    .map((y) => `y${y}: contributionsCollection(from: "${y}-01-01T00:00:00Z", to: "${y}-12-31T23:59:59Z") { totalCommitContributions }`)
+    .map((y) => `y${y}: contributionsCollection(from: "${y}-01-01T00:00:00Z", to: "${y}-12-31T23:59:59Z") { totalCommitContributions totalPullRequestReviewContributions contributionCalendar { totalContributions weeks { contributionDays { date contributionCount contributionLevel } } } }`)
     .join('\n      ');
   const query = `query($login: String!) {
     user(login: $login) {
       createdAt
       pullRequests { totalCount }
+      issues { totalCount }
+      followers { totalCount }
       contributionsCollection {
         totalCommitContributions
         totalPullRequestContributions
@@ -658,18 +785,42 @@ function summarise(user) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 6)
     .map(([name, size]) => ({ name, share: size / all }));
-  const commitsAll = Object.entries(user)
+  const toDays = (weeks) =>
+    weeks.map((w) =>
+      w.contributionDays.map((d) => ({
+        date: d.date,
+        count: d.contributionCount,
+        level: LEVELS.indexOf(d.contributionLevel),
+        weekday: new Date(`${d.date}T00:00:00Z`).getUTCDay(),
+      })),
+    );
+  const today = new Date().toISOString().slice(0, 10);
+  const yearly = Object.entries(user)
     .filter(([k]) => /^y\d{4}$/.test(k))
-    .reduce((sum, [, v]) => sum + v.totalCommitContributions, 0);
+    .map(([k, v]) => ({ year: Number(k.slice(1)), ...v }));
+  const sum = (f) => yearly.reduce((a, y) => a + f(y), 0);
+  // one calendar per year that has real activity, newest first, without future days
+  const calendars = yearly
+    .filter((y) => y.contributionCalendar.totalContributions >= 10)
+    .sort((a, b) => b.year - a.year)
+    .map((y) => ({
+      year: y.year,
+      total: y.contributionCalendar.totalContributions,
+      weeks: toDays(y.contributionCalendar.weeks)
+        .map((w) => w.filter((d) => d.date <= today))
+        .filter((w) => w.length),
+    }));
   return {
     total: cal.totalContributions,
-    commits: cc.totalCommitContributions,
-    prs: cc.totalPullRequestContributions,
     repos: user.repositories.totalCount,
-    weeks,
     languages,
-    commitsAll,
+    calendars,
+    totalAll: sum((y) => y.contributionCalendar.totalContributions),
+    commitsAll: sum((y) => y.totalCommitContributions),
+    reviews: sum((y) => y.totalPullRequestReviewContributions),
     prsAll: user.pullRequests.totalCount,
+    issues: user.issues.totalCount,
+    followers: user.followers.totalCount,
     stars,
     langCount: bytes.size,
     years: (Date.now() - new Date(user.createdAt).getTime()) / (365.25 * 24 * 3600 * 1000),
@@ -685,87 +836,105 @@ function activity(s) {
   const W = 1200;
   const X = 56;
   const gridL = X + 46;
-  const gridT = 246;
-  const step = (W - X - gridL) / s.weeks.length;
+  const cols = Math.max(...s.calendars.map((c) => c.weeks.length));
+  const step = (W - X - gridL) / cols;
   const size = Math.floor(step - 3.5);
-  const gridB = gridT + 7 * step;
-  const H = Math.round(gridB + 62);
-  const days = s.weeks.flat();
-  const best = days.reduce((a, b) => (b.count > a.count ? b : a));
+  const gridH = 7 * step;
+  const blockH = 56 + gridH + 26;
+  const top = 232;
+  const H = Math.round(top + s.calendars.length * blockH + 34);
+  const allDays = s.calendars.flatMap((c) => c.weeks.flat());
+  const best = allDays.reduce((a, b) => (b.count > a.count ? b : a));
+  const cellStroke = ` stroke="#1f242c" stroke-width=".8"`;
+  let ping = '';
 
-  let bestXY = null;
-  const cells = s.weeks
-    .map((week, w) =>
-      week
-        .map((d) => {
+  const blocks = s.calendars
+    .map((cal, ci) => {
+      const y0 = top + ci * blockH;
+      const gridT = y0 + 56;
+      const cells = cal.weeks
+        .map((week, w) =>
+          week
+            .map((d) => {
+              const x = r1(gridL + w * step);
+              const y = r1(gridT + d.weekday * step);
+              if (d === best) ping = `<circle class="pingc" cx="${r1(x + size / 2)}" cy="${r1(y + size / 2)}" r="${size}" fill="none" stroke="#b6ffc6" stroke-width="1.5"/>`;
+              const delay = Math.round(ci * 450 + w * 18 + d.weekday * 40);
+              return `<rect class="c${d.level === 4 ? ' glow' : ''}" style="animation-delay:${delay}ms" x="${x}" y="${y}" width="${size}" height="${size}" rx="3.5" fill="${GREEN[d.level]}"${d.level === 0 ? cellStroke : ''}/>`;
+            })
+            .join(''),
+        )
+        .join('\n    ');
+
+      let last = -1;
+      let lastX = -Infinity;
+      const months = cal.weeks
+        .map((week, w) => {
+          const first = week.find((d) => d.date.slice(8) <= '07') ?? week[0];
+          const m = Number(first.date.slice(5, 7)) - 1;
           const x = r1(gridL + w * step);
-          const y = r1(gridT + d.weekday * step);
-          if (d === best) bestXY = [x + size / 2, y + size / 2];
-          const delay = Math.round(w * 22 + d.weekday * 45);
-          const inner = `<rect${d.level === 4 ? ' class="glow"' : ''} x="${x}" y="${y}" width="${size}" height="${size}" rx="3.5" fill="${GREEN[d.level]}"${d.level === 0 ? ` stroke="#1f242c" stroke-width=".8"` : ''}/>`;
-          return `<g class="c" style="animation-delay:${delay}ms">${inner}</g>`;
+          if (m === last) return '';
+          last = m;
+          if (x - lastX < 50 || x > W - X - 30) return '';
+          lastX = x;
+          return `<text class="mono muted" x="${x}" y="${gridT - 10}" font-size="13">${MONTHS[m]}</text>`;
         })
-        .join(''),
-    )
-    .join('\n    ');
-
-  let last = -1;
-  let lastX = -Infinity;
-  const months = s.weeks
-    .map((week, w) => {
-      const m = Number(week[0].date.slice(5, 7)) - 1;
-      const x = r1(gridL + w * step);
-      if (m === last) return '';
-      last = m;
-      if (x - lastX < 50 || x > W - X - 30) return '';
-      lastX = x;
-      return `<text class="mono muted" x="${x}" y="${gridT - 12}" font-size="13">${MONTHS[m]}</text>`;
-    })
-    .join('');
-  const dayLabels = [[1, 'Mon'], [3, 'Wed'], [5, 'Fri']]
-    .map(([d, l]) => `<text class="mono muted" x="${X}" y="${r1(gridT + d * step + size - 3)}" font-size="13">${l}</text>`)
-    .join('');
-
-  const stat = (x, value, label) =>
-    `<text class="sans ink" x="${x}" y="142" font-size="30" font-weight="600">${value}</text>
-  <text class="mono muted" x="${x}" y="168" font-size="12.5" letter-spacing="1.5">${label}</text>`;
-
-  const legendX = W - X - 5 * (size + 4) - 44;
-  const legend = `<text class="mono muted" x="${legendX - 12}" y="${r1(gridB + 30)}" font-size="13" text-anchor="end">Less</text>
-  ${GREEN.map((c, i) => `<rect x="${legendX + i * (size + 4)}" y="${r1(gridB + 17)}" width="${size}" height="${size}" rx="3.5" fill="${c}"${i === 0 ? ` stroke="#1f242c" stroke-width=".8"` : ''}/>`).join('')}
-  <text class="mono muted" x="${W - X}" y="${r1(gridB + 30)}" font-size="13" text-anchor="end">More</text>`;
-
-  const body = `  <defs>
-    <linearGradient id="scan" x1="0" x2="1"><stop offset="0" stop-color="#39d353" stop-opacity="0"/><stop offset=".9" stop-color="#39d353" stop-opacity=".22"/><stop offset="1" stop-color="#b6ffc6" stop-opacity=".9"/></linearGradient>
-    <clipPath id="grid"><rect x="${gridL - 4}" y="${gridT - 4}" width="${W - X - gridL + 8}" height="${r1(7 * step + 4)}"/></clipPath>
-  </defs>
-  ${panel(W, H)}
-  <text class="mono muted" x="${X}" y="58" font-size="14" letter-spacing="2">CONTRIBUTIONS  /  LAST 52 WEEKS</text>
-  <text class="mono muted" x="${W - X}" y="58" font-size="14" letter-spacing="2" text-anchor="end">${esc(days[0].date)}  &gt;  ${esc(days.at(-1).date)}</text>
-  <text class="sans ink" x="${X - 3}" y="168" font-size="88" font-weight="700" letter-spacing="-3">${s.total.toLocaleString('en-US')}</text>
-  <rect x="${X}" y="188" width="56" height="3" fill="#39d353"/>
-  ${stat(330, s.commits, 'COMMITS')}
-  ${stat(470, s.prs, 'PULL REQUESTS')}
-  ${stat(680, s.repos, 'PUBLIC REPOS')}
-  ${stat(880, best.count, `BEST DAY  ${best.date.slice(5)}`)}
+        .join('');
+      const dayLabels = [[1, 'Mon'], [3, 'Wed'], [5, 'Fri']]
+        .map(([d, l]) => `<text class="mono muted" x="${X}" y="${r1(gridT + d * step + size - 3)}" font-size="13">${l}</text>`)
+        .join('');
+      const scanW = W - X - gridL;
+      return `<g class="yr" style="animation-delay:${ci * 450}ms">
+    <text class="sans ink" x="${X}" y="${y0 + 22}" font-size="26" font-weight="700" letter-spacing="-.5">${cal.year}</text>
+    <text class="mono muted" x="${X + 76}" y="${y0 + 21}" font-size="13" letter-spacing="1.5">${cal.total.toLocaleString('en-US')} CONTRIBUTIONS</text>
+    <path class="rule" d="M${X + 300} ${y0 + 15.5}H${W - X}" stroke-opacity=".7"/>
+  </g>
   ${months}
   ${dayLabels}
   <g>
     ${cells}
   </g>
-  ${bestXY ? `<circle class="pingc" cx="${r1(bestXY[0])}" cy="${r1(bestXY[1])}" r="${size}" fill="none" stroke="#b6ffc6" stroke-width="1.5"/>` : ''}
-  <g clip-path="url(#grid)"><rect class="scanbar" x="${gridL - 120}" y="${gridT - 4}" width="120" height="${r1(7 * step + 4)}" fill="url(#scan)"/></g>
+  <clipPath id="g${ci}"><rect x="${gridL - 4}" y="${r1(gridT - 4)}" width="${r1(scanW + 8)}" height="${r1(gridH + 4)}"/></clipPath>
+  <g clip-path="url(#g${ci})"><rect class="scanbar" style="animation-delay:${r1(2.6 + ci * 1.1)}s" x="${gridL - 120}" y="${r1(gridT - 4)}" width="120" height="${r1(gridH + 4)}" fill="url(#scan)"/></g>`;
+    })
+    .join('\n  ');
+
+  const stat = (x, value, label) =>
+    `<text class="sans ink" x="${x}" y="142" font-size="30" font-weight="600">${value}</text>
+  <text class="mono muted" x="${x}" y="168" font-size="12.5" letter-spacing="1.5">${label}</text>`;
+
+  const legendY = H - 46;
+  const legendX = W - X - 5 * (size + 4) - 44;
+  const legend = `<text class="mono muted" x="${legendX - 12}" y="${legendY + 13}" font-size="13" text-anchor="end">Less</text>
+  ${GREEN.map((c, i) => `<rect x="${legendX + i * (size + 4)}" y="${legendY}" width="${size}" height="${size}" rx="3.5" fill="${c}"${i === 0 ? cellStroke : ''}/>`).join('')}
+  <text class="mono muted" x="${W - X}" y="${legendY + 13}" font-size="13" text-anchor="end">More</text>`;
+
+  const body = `  <defs>
+    <linearGradient id="scan" x1="0" x2="1"><stop offset="0" stop-color="#39d353" stop-opacity="0"/><stop offset=".9" stop-color="#39d353" stop-opacity=".22"/><stop offset="1" stop-color="#b6ffc6" stop-opacity=".9"/></linearGradient>
+  </defs>
+  ${panel(W, H)}
+  <text class="mono muted" x="${X}" y="58" font-size="14" letter-spacing="2">CONTRIBUTIONS  /  ALL TIME</text>
+  <text class="mono muted" x="${W - X}" y="58" font-size="14" letter-spacing="2" text-anchor="end">${s.calendars.at(-1).year}  &gt;  ${s.calendars[0].year}</text>
+  <text class="sans ink" x="${X - 3}" y="168" font-size="88" font-weight="700" letter-spacing="-3">${s.totalAll.toLocaleString('en-US')}</text>
+  <rect x="${X}" y="188" width="56" height="3" fill="#39d353"/>
+  ${stat(330, s.commitsAll.toLocaleString('en-US'), 'COMMITS')}
+  ${stat(470, s.prsAll.toLocaleString('en-US'), 'PULL REQUESTS')}
+  ${stat(680, s.repos, 'PUBLIC REPOS')}
+  ${stat(880, best.count, `BEST DAY  ${best.date}`)}
+  ${blocks}
+  ${ping}
   ${legend}`;
 
-  return svg(W, H, 'GitHub contribution calendar, last 52 weeks', `${s.total} contributions in the last year: ${s.commits} commits and ${s.prs} pull requests across ${s.repos} public repositories. Best day ${best.count} on ${best.date}.`, body, `
-    .c { transform-box: fill-box; transform-origin: center; animation: pop .55s cubic-bezier(.2,1.4,.4,1) both; }
-    .glow { animation: glow 2.6s ease-in-out 2.4s infinite; }
-    .pingc { transform-box: fill-box; transform-origin: center; animation: pingc 2.8s ease-out 2.6s infinite both; }
-    .scanbar { animation: scanbar 7s cubic-bezier(.5,0,.4,1) 2.4s infinite both; }
+  return svg(W, H, 'GitHub contribution calendar, all years', `${s.totalAll} contributions since ${s.calendars.at(-1).year}: ${s.calendars.map((c) => `${c.total} in ${c.year}`).join(', ')}. ${s.commitsAll} commits and ${s.prsAll} pull requests. Best day ${best.count} on ${best.date}.`, body, `
+    .c { transform-box: fill-box; transform-origin: center; animation: pop .5s cubic-bezier(.2,1.4,.4,1) both; }
+    .glow { animation: pop .5s cubic-bezier(.2,1.4,.4,1) both, glow 2.6s ease-in-out 3s infinite; }
+    .yr { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+    .pingc { transform-box: fill-box; transform-origin: center; animation: pingc 2.8s ease-out 3s infinite both; }
+    .scanbar { animation: scanbar 8s cubic-bezier(.5,0,.4,1) infinite both; }
     @keyframes pop { from { transform: scale(0); opacity: 0; } }
     @keyframes glow { 50% { fill: #9dffb0; } }
     @keyframes pingc { from { transform: scale(.4); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
-    @keyframes scanbar { 0% { transform: translateX(0); } 60%, 100% { transform: translateX(${Math.round(W - X - gridL + 140)}px); } }
+    @keyframes scanbar { 0% { transform: translateX(0); } 55%, 100% { transform: translateX(${Math.round(W - X - gridL + 140)}px); } }
     @media (prefers-reduced-motion: reduce) { .scanbar, .pingc { display: none; } }`);
 }
 
@@ -778,49 +947,59 @@ function rank(value, steps) {
   while (i + 1 < steps.length && value >= steps[i + 1]) i++;
   const next = i + 1 < steps.length ? steps[i + 1] : null;
   const floor = i >= 0 ? steps[i] : 0;
-  return { tier: i, next, progress: next === null ? 1 : Math.max(0.04, (value - floor) / (next - floor)) };
+  return { tier: i, next, progress: next === null ? 1 : (value - floor) / (next - floor) };
 }
 
 function trophies(s) {
   const W = 1200;
-  const H = 330;
   const X = 56;
   const gap = 14;
+  const perRow = 5;
+  const rowH = 214;
+  const n = (v) => v.toLocaleString('en-US');
   const items = [
-    ['COMMITS', s.commitsAll, s.commitsAll.toLocaleString('en-US'), [1, 10, 100, 200, 500, 1000, 2000, 4000]],
-    ['PULL REQUESTS', s.prsAll, s.prsAll.toLocaleString('en-US'), [1, 10, 20, 50, 100, 200, 500, 1000]],
-    ['EXPERIENCE', s.years, `${s.years.toFixed(1)} yrs`, [0.5, 1, 1.5, 2, 3, 5, 7.5, 10]],
+    ['COMMITS', s.commitsAll, n(s.commitsAll), [1, 10, 100, 200, 500, 1000, 2000, 4000]],
+    ['PULL REQUESTS', s.prsAll, n(s.prsAll), [1, 10, 20, 50, 100, 200, 500, 1000]],
+    ['CONTRIBUTIONS', s.totalAll, n(s.totalAll), [1, 50, 100, 250, 500, 1000, 2500, 5000]],
     ['LANGUAGES', s.langCount, s.langCount, [1, 2, 3, 5, 8, 10, 15, 20]],
-    ['REPOSITORIES', s.repos, s.repos, [1, 5, 10, 20, 30, 40, 50, 80]],
+    ['EXPERIENCE', s.years, `${s.years.toFixed(1)} yrs`, [0.5, 1, 1.5, 2, 3, 5, 7.5, 10]],
+    ['REPOSITORIES', s.repos, s.repos, [1, 10, 20, 30, 35, 40, 45, 50]],
     ['STARS', s.stars, s.stars, [1, 10, 30, 50, 100, 200, 700, 2000]],
+    ['FOLLOWERS', s.followers, s.followers, [1, 10, 20, 50, 100, 200, 400, 1000]],
+    ['REVIEWS', s.reviews, s.reviews, [1, 3, 8, 20, 30, 45, 57, 70]],
+    ['ISSUES', s.issues, s.issues, [1, 10, 20, 50, 100, 200, 500, 1000]],
   ];
-  const tw = (W - 2 * X - gap * (items.length - 1)) / items.length;
+  const rows = Math.ceil(items.length / perRow);
+  const H = 74 + rows * rowH + (rows - 1) * gap + 34;
+  const tw = (W - 2 * X - gap * (perRow - 1)) / perRow;
   const hex = (cx, cy, r) =>
     'M' + Array.from({ length: 6 }, (_, k) => `${r1(cx + r * Math.cos((Math.PI / 180) * (60 * k - 90)))} ${r1(cy + r * Math.sin((Math.PI / 180) * (60 * k - 90)))}`).join('L') + 'Z';
 
   const tiles = items
     .map(([label, value, shown, steps], i) => {
-      const x = X + i * (tw + gap);
+      const x = X + (i % perRow) * (tw + gap);
+      const y = 74 + Math.floor(i / perRow) * (rowH + gap);
       const cx = x + tw / 2;
-      const cy = 128;
+      const cy = y + 62;
       const { tier, next, progress } = rank(value, steps);
-      const name = tier < 0 ? '-' : TIERS[tier];
-      const colour = tier >= 5 ? '#ffe2a6' : tier >= 2 ? C.amber : '#b07a45';
-      const barW = tw - 40;
-      const nextLabel = next === null ? 'top rank' : `${TIERS[tier + 1]} at ${next.toLocaleString('en-US')}`;
-      return `<g class="tile" style="animation-delay:${i * 110}ms">
-    <rect x="${r1(x)}" y="74" width="${r1(tw)}" height="${H - 74 - 34}" rx="12" fill="${C.raised}" stroke="${C.line}"/>
+      const name = tier < 0 ? '?' : TIERS[tier];
+      const colour = tier < 0 ? '#565a63' : tier >= 5 ? '#ffe2a6' : tier >= 2 ? C.amber : '#c08a55';
+      const barW = tw - 48;
+      const nextLabel = next === null ? 'top rank' : `${TIERS[tier + 1]} at ${n(next)}`;
+      const shimmer = tier < 0 ? '' : `<g clip-path="url(#h${i})"><rect x="${r1(cx - 80)}" y="${cy - 45}" width="22" height="90" fill="#fff" opacity=".3" transform="skewX(-20)"><animate attributeName="x" values="${r1(cx - 80)};${r1(cx + 100)};${r1(cx + 100)}" keyTimes="0;.28;1" dur="4.5s" begin="${r1(1.4 + i * 0.3)}s" repeatCount="indefinite"/></rect></g>`;
+      return `<g class="tile" style="animation-delay:${i * 90}ms">
+    <rect x="${r1(x)}" y="${y}" width="${r1(tw)}" height="${rowH}" rx="12" fill="${C.raised}" stroke="${C.line}"/>
     <clipPath id="h${i}"><path d="${hex(cx, cy, 38)}"/></clipPath>
     <path d="${hex(cx, cy, 38)}" fill="${colour}" opacity=".1"/>
-    <g clip-path="url(#h${i})"><rect x="${r1(cx - 80)}" y="${cy - 45}" width="22" height="90" fill="#fff" opacity=".28" transform="skewX(-20)"><animate attributeName="x" values="${r1(cx - 80)};${r1(cx + 100)};${r1(cx + 100)}" keyTimes="0;.28;1" dur="4.5s" begin="${r1(1.2 + i * 0.35)}s" repeatCount="indefinite"/></rect></g>
-    <path class="hexl" style="animation-delay:${r1(0.3 + i * 0.12)}s" pathLength="1" d="${hex(cx, cy, 38)}" fill="none" stroke="${colour}" stroke-width="2" stroke-linejoin="round"/>
+    ${shimmer}
+    <path class="hexl" style="animation-delay:${r1(0.3 + i * 0.1)}s" pathLength="1" d="${hex(cx, cy, 38)}" fill="none" stroke="${colour}" stroke-width="2" stroke-linejoin="round"/>
     <path d="${hex(cx, cy, 30)}" fill="none" stroke="${colour}" stroke-width="1" opacity=".35"/>
     <text class="sans" x="${r1(cx)}" y="${cy + (name.length > 2 ? 7 : 9)}" font-size="${name.length > 2 ? 20 : 26}" font-weight="800" text-anchor="middle" fill="${colour}" letter-spacing="${name.length > 1 ? 1 : 0}">${name}</text>
-    <text class="mono muted" x="${r1(cx)}" y="200" font-size="12" letter-spacing="1.5" text-anchor="middle">${label}</text>
-    <text class="sans ink" x="${r1(cx)}" y="232" font-size="25" font-weight="600" text-anchor="middle">${shown}</text>
-    <rect x="${r1(x + 20)}" y="248" width="${r1(barW)}" height="4" rx="2" fill="${C.track}"/>
-    <rect class="prog" style="animation-delay:${r1(0.6 + i * 0.12)}s" x="${r1(x + 20)}" y="248" width="${r1(barW * Math.min(1, progress))}" height="4" rx="2" fill="${colour}"/>
-    <text class="mono muted" x="${r1(cx)}" y="274" font-size="11.5" text-anchor="middle">${nextLabel}</text>
+    <text class="mono muted" x="${r1(cx)}" y="${y + 132}" font-size="12" letter-spacing="1.5" text-anchor="middle">${label}</text>
+    <text class="sans ${tier < 0 ? 'muted' : 'ink'}" x="${r1(cx)}" y="${y + 163}" font-size="25" font-weight="600" text-anchor="middle">${shown}</text>
+    <rect x="${r1(x + 24)}" y="${y + 178}" width="${r1(barW)}" height="4" rx="2" fill="${C.track}"/>
+    ${progress > 0 ? `<rect class="prog" style="animation-delay:${r1(0.6 + i * 0.1)}s" x="${r1(x + 24)}" y="${y + 178}" width="${r1(barW * Math.max(0.04, Math.min(1, progress)))}" height="4" rx="2" fill="${colour}"/>` : ''}
+    <text class="mono muted" x="${r1(cx)}" y="${y + 201}" font-size="11.5" text-anchor="middle">${nextLabel}</text>
   </g>`;
     })
     .join('\n  ');
@@ -829,7 +1008,7 @@ function trophies(s) {
   <text class="mono muted" x="${X}" y="52" font-size="14" letter-spacing="2">TROPHIES  /  ALL TIME</text>
   <text class="mono muted" x="${W - X}" y="52" font-size="14" letter-spacing="2" text-anchor="end">RANKED  C  &gt;  SSS</text>
   ${tiles}`;
-  const desc = items.map(([l, v, shown, steps]) => `${l} ${shown}, rank ${TIERS[rank(v, steps).tier] ?? 'none'}`).join('; ');
+  const desc = items.map(([l, v, shown, steps]) => `${l} ${shown}, rank ${TIERS[rank(v, steps).tier] ?? 'none yet'}`).join('; ');
   return svg(W, H, 'Trophies', desc, body, `
     .tile { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
     .hexl { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hexl 1.4s cubic-bezier(.4,0,.2,1) both; }
@@ -930,6 +1109,8 @@ await write('hero.svg', hero(jpeg));
 await write('terminal.svg', terminal());
 await write('stack.svg', stack(icons));
 await write('card-lanjo.svg', lanjo());
+await write('card-saludrd.svg', saludrd((await readFile(new URL('saludrd-logo.png', SRC))).toString('base64')));
+for (const lang of Object.keys(ABOUT)) await write(`about-${lang}.svg`, about(lang));
 await write('divider.svg', divider());
 await write('footer.svg', footer());
 for (const [i, c] of CARDS.entries()) await write(`card-${c.file}.svg`, card(c, i + 1));

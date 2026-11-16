@@ -14,28 +14,18 @@
 
 ## About
 
-<details open>
-<summary><b>English</b></summary>
-<br>
-
-I work on both sides of the same problem: I build software, and I build the tools that test it. Most of what is public here is security tooling written for the terminal: a reconnaissance framework mapped to MITRE ATT&CK, an authenticated encryption toolkit on top of OpenSSL, and the automation I wrote for a SOC team. Alongside it I ship web and mobile products with Next.js and Flutter, and I am a co-founder of [Lanjo Technologies](https://lanjo.vercel.app), a cybersecurity, IT and software studio in Santiago de los Caballeros.
-
-</details>
+<img src="assets/about-en.svg" width="100%" alt="About. I build software, and the tools that test it. Most of what is public here is security tooling for the terminal: a recon framework mapped to MITRE ATT&CK, an authenticated encryption toolkit on top of OpenSSL, and the automation I wrote for a SOC team. Alongside it I ship web and mobile products, and I co-founded Lanjo Technologies. Role: cybersecurity and software engineer. Based in Paris, France. Speaks English, French and Spanish.">
 
 <details>
 <summary><b>Français</b></summary>
 <br>
-
-Je travaille des deux côtés du même problème : je construis des logiciels, et je construis les outils qui les mettent à l'épreuve. L'essentiel de ce qui est public ici, ce sont des outils de sécurité pour le terminal : un framework de reconnaissance aligné sur MITRE ATT&CK, une boîte à outils de chiffrement authentifié au-dessus d'OpenSSL, et l'automatisation que j'ai écrite pour une équipe SOC. En parallèle, je livre des produits web et mobiles avec Next.js et Flutter, et je suis cofondateur de [Lanjo Technologies](https://lanjo.vercel.app), un studio de cybersécurité, d'IT et de développement logiciel à Santiago de los Caballeros.
-
+<img src="assets/about-fr.svg" width="100%" alt="À propos. Je construis des logiciels, et les outils qui les testent. Ingénieur cybersécurité et logiciel, cofondateur de Lanjo Technologies, basé à Paris.">
 </details>
 
 <details>
 <summary><b>Español</b></summary>
 <br>
-
-Trabajo en los dos lados del mismo problema: construyo software, y construyo las herramientas que lo ponen a prueba. La mayor parte de lo que es público aquí son herramientas de seguridad para la terminal: un framework de reconocimiento alineado con MITRE ATT&CK, un conjunto de herramientas de cifrado autenticado sobre OpenSSL, y la automatización que escribí para un equipo SOC. En paralelo, entrego productos web y móviles con Next.js y Flutter, y soy cofundador de [Lanjo Technologies](https://lanjo.vercel.app), un estudio de ciberseguridad, IT y desarrollo de software en Santiago de los Caballeros.
-
+<img src="assets/about-es.svg" width="100%" alt="Sobre mí. Construyo software, y lo que lo pone a prueba. Ingeniero de ciberseguridad y software, cofundador de Lanjo Technologies, con base en París.">
 </details>
 
 <img src="assets/divider.svg" width="100%" alt="">
@@ -43,6 +33,8 @@ Trabajo en los dos lados del mismo problema: construyo software, y construyo las
 ## Selected work
 
 <a href="https://lanjo.vercel.app"><img src="assets/card-lanjo.svg" width="100%" alt="Lanjo Technologies, co-founder. Cybersecurity, IT infrastructure, web and custom software studio in Santiago de los Caballeros. I built the company site with Next.js 16, React 19 and Tailwind v4."></a>
+
+<a href="https://mi-saludrd.com"><img src="assets/card-saludrd.svg" width="100%" alt="Mi SaludRD: Lanjo's own product, in beta. A digital health platform for the Dominican Republic where patients book appointments with verified professionals and doctors get scheduling, clinical records and modules per specialty. Next.js, Flutter, Supabase, Stripe."></a>
 
 <p align="center">
   <a href="https://github.com/mpgamer75/security-scanner"><img src="assets/card-security-scanner.svg" width="49%" alt="security-scanner: recon tool for authorized penetration tests. OSINT, network and web stages, findings mapped to MITRE ATT&CK, one offline HTML report. Bash, Python, Docker."></a>
@@ -65,7 +57,7 @@ Also here: [code-altice](https://github.com/mpgamer75/code-altice), the failed-l
 
 ## Activity
 
-<img src="assets/activity.svg" width="100%" alt="GitHub contribution calendar for the last 52 weeks, with commit, pull request and repository counts.">
+<img src="assets/activity.svg" width="100%" alt="GitHub contribution calendar for every year since 2024, with all-time commit, pull request and repository counts.">
 
 <img src="assets/languages.svg" width="100%" alt="Languages across my public repositories, by share of bytes.">
 
@@ -73,7 +65,7 @@ Also here: [code-altice](https://github.com/mpgamer75/code-altice), the failed-l
 
 ## Trophies
 
-<img src="assets/trophies.svg" width="100%" alt="All-time trophies: commits, pull requests, experience, languages, repositories and stars, each ranked on a scale from C to SSS.">
+<img src="assets/trophies.svg" width="100%" alt="All-time trophies: commits, pull requests, contributions, languages, experience, repositories, stars, followers, reviews and issues, each ranked on a scale from C to SSS.">
 
 <p align="center">
   <a href="https://github.com/mpgamer75?tab=achievements"><img src="assets/achievements/pull-shark.png" width="92" alt="Pull Shark x2" title="Pull Shark x2"></a>
@@ -88,9 +80,3 @@ Also here: [code-altice](https://github.com/mpgamer75/code-altice), the failed-l
 <img src="assets/divider.svg" width="100%" alt="">
 
 <img src="assets/footer.svg" width="100%" alt="">
-
-<p align="center">
-  <sub>Every panel on this page is an SVG built by <a href="scripts/build.mjs">one script</a>; the activity ones are refreshed daily by a GitHub Action.<br>
-  The terminal shows a real hexdump, so <code>xxd -r -p</code> on the bytes in the footer gives the text back.<br>
-  On repeat: <a href="https://open.spotify.com/track/3sK8wGT43QFpWrvNQsrQya">DtMF</a>.</sub>
-</p>
