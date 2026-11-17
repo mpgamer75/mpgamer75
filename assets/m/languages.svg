@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 464" width="640" height="464" role="img" aria-labelledby="t d">
   <title id="t">Languages across public repositories</title>
-  <desc id="d">Share of code by bytes: TypeScript 54.9%, Shell 14.7%, JavaScript 10.1%, Dart 7.4%, Python 6.6%, CSS 2.9%.</desc>
+  <desc id="d">Share of code by bytes: TypeScript 54.1%, Shell 14.5%, JavaScript 11.3%, Dart 7.3%, Python 6.5%, CSS 2.8%.</desc>
   <style>
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
     .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
@@ -23,25 +23,25 @@
   <text class="mono ink" x="34" y="118" font-size="22">TypeScript</text>
   <rect x="204" y="107" width="316" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:0ms" x="204" y="107" width="316" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="118" font-size="21" text-anchor="end">54.9%</text>
+  <text class="mono soft" x="606" y="118" font-size="21" text-anchor="end">54.1%</text>
   <text class="mono ink" x="34" y="176" font-size="22">Shell</text>
   <rect x="204" y="165" width="316" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:80ms" x="204" y="165" width="84.7" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="176" font-size="21" text-anchor="end">14.7%</text>
+  <text class="mono soft" x="606" y="176" font-size="21" text-anchor="end">14.5%</text>
   <text class="mono ink" x="34" y="234" font-size="22">JavaScript</text>
   <rect x="204" y="223" width="316" height="8" rx="4" fill="#1a1c21"/>
-  <rect class="bar" style="animation-delay:160ms" x="204" y="223" width="58" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="234" font-size="21" text-anchor="end">10.1%</text>
+  <rect class="bar" style="animation-delay:160ms" x="204" y="223" width="66.1" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="606" y="234" font-size="21" text-anchor="end">11.3%</text>
   <text class="mono ink" x="34" y="292" font-size="22">Dart</text>
   <rect x="204" y="281" width="316" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:240ms" x="204" y="281" width="42.5" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="292" font-size="21" text-anchor="end">7.4%</text>
+  <text class="mono soft" x="606" y="292" font-size="21" text-anchor="end">7.3%</text>
   <text class="mono ink" x="34" y="350" font-size="22">Python</text>
   <rect x="204" y="339" width="316" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:320ms" x="204" y="339" width="38.2" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="350" font-size="21" text-anchor="end">6.6%</text>
+  <text class="mono soft" x="606" y="350" font-size="21" text-anchor="end">6.5%</text>
   <text class="mono ink" x="34" y="408" font-size="22">CSS</text>
   <rect x="204" y="397" width="316" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:400ms" x="204" y="397" width="16.5" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="606" y="408" font-size="21" text-anchor="end">2.9%</text>
+  <text class="mono soft" x="606" y="408" font-size="21" text-anchor="end">2.8%</text>
 </svg>

@@ -89,7 +89,7 @@
     <text class="mono muted" x="103" y="132" font-size="12" letter-spacing="1.5" text-anchor="middle">EXPERIENCE</text>
     <text class="sans ink" x="103" y="163" font-size="25" font-weight="600" text-anchor="middle">3.0 yrs</text>
     <rect x="24" y="178" width="158" height="4" rx="2" fill="#1a1c21"/>
-    <rect class="prog" style="animation-delay:1s" x="24" y="178" width="154.4" height="4" rx="2" fill="#f0a23b"/>
+    <rect class="prog" style="animation-delay:1s" x="24" y="178" width="154.7" height="4" rx="2" fill="#f0a23b"/>
     <text class="mono muted" x="103" y="201" font-size="11.5" text-anchor="middle">AAA at 3</text>
   </g></g>
   <g class="tile" style="animation-delay:450ms"><g transform="translate(56 302.4) scale(1.0019)">
