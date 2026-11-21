@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 258" width="1200" height="258" role="img" aria-labelledby="t d">
   <title id="t">Languages across public repositories</title>
-  <desc id="d">Share of code by bytes: TypeScript 50.5%, Shell 12.9%, JavaScript 10.2%, PowerShell 9.4%, Dart 6.5%, Python 5.9%.</desc>
+  <desc id="d">Share of code by bytes: TypeScript 45.2%, PowerShell 18.9%, Shell 11.5%, JavaScript 9.2%, Dart 5.8%, Python 5.3%.</desc>
   <style>
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
     .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
@@ -23,25 +23,25 @@
   <text class="mono ink" x="56" y="112" font-size="16">TypeScript</text>
   <rect x="186" y="101" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:0ms" x="186" y="101" width="318" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="112" font-size="15" text-anchor="end">50.5%</text>
-  <text class="mono ink" x="56" y="158" font-size="16">Shell</text>
+  <text class="mono soft" x="568" y="112" font-size="15" text-anchor="end">45.2%</text>
+  <text class="mono ink" x="56" y="158" font-size="16">PowerShell</text>
   <rect x="186" y="147" width="318" height="8" rx="4" fill="#1a1c21"/>
-  <rect class="bar" style="animation-delay:80ms" x="186" y="147" width="81.1" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="158" font-size="15" text-anchor="end">12.9%</text>
-  <text class="mono ink" x="56" y="204" font-size="16">JavaScript</text>
+  <rect class="bar" style="animation-delay:80ms" x="186" y="147" width="132.7" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="568" y="158" font-size="15" text-anchor="end">18.9%</text>
+  <text class="mono ink" x="56" y="204" font-size="16">Shell</text>
   <rect x="186" y="193" width="318" height="8" rx="4" fill="#1a1c21"/>
-  <rect class="bar" style="animation-delay:160ms" x="186" y="193" width="64.5" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="568" y="204" font-size="15" text-anchor="end">10.2%</text>
-  <text class="mono ink" x="632" y="112" font-size="16">PowerShell</text>
+  <rect class="bar" style="animation-delay:160ms" x="186" y="193" width="81.1" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="568" y="204" font-size="15" text-anchor="end">11.5%</text>
+  <text class="mono ink" x="632" y="112" font-size="16">JavaScript</text>
   <rect x="762" y="101" width="318" height="8" rx="4" fill="#1a1c21"/>
-  <rect class="bar" style="animation-delay:240ms" x="762" y="101" width="59.1" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="112" font-size="15" text-anchor="end">9.4%</text>
+  <rect class="bar" style="animation-delay:240ms" x="762" y="101" width="64.5" height="8" rx="4" fill="#f0a23b"/>
+  <text class="mono soft" x="1144" y="112" font-size="15" text-anchor="end">9.2%</text>
   <text class="mono ink" x="632" y="158" font-size="16">Dart</text>
   <rect x="762" y="147" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:320ms" x="762" y="147" width="40.7" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="158" font-size="15" text-anchor="end">6.5%</text>
+  <text class="mono soft" x="1144" y="158" font-size="15" text-anchor="end">5.8%</text>
   <text class="mono ink" x="632" y="204" font-size="16">Python</text>
   <rect x="762" y="193" width="318" height="8" rx="4" fill="#1a1c21"/>
   <rect class="bar" style="animation-delay:400ms" x="762" y="193" width="37.3" height="8" rx="4" fill="#f0a23b"/>
-  <text class="mono soft" x="1144" y="204" font-size="15" text-anchor="end">5.9%</text>
+  <text class="mono soft" x="1144" y="204" font-size="15" text-anchor="end">5.3%</text>
 </svg>
