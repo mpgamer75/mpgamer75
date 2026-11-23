@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 979" width="640" height="979" role="img" aria-labelledby="t d">
   <title id="t">Activity scan report</title>
-  <desc id="d">575 contributions all time: 507 commits, 510 pull requests, 16 public repositories, 18 languages. Best day 30 on 2025-11-19. 215 contributions in the last 52 weeks, busiest week 34.</desc>
+  <desc id="d">577 contributions all time: 508 commits, 510 pull requests, 16 public repositories, 18 languages. Best day 30 on 2025-11-19. 180 contributions in the last 52 weeks, busiest week 34.</desc>
   <style>
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
     .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
@@ -81,12 +81,12 @@
     <circle cx="289.9" cy="241.3" r="1.6" fill="#24262c"/>
     <path class="spoke" style="animation-delay:5.7s" d="M297.7 240L278 187"/>
     <path class="spoke" style="animation-delay:5.8s" d="M305 237.8L286.4 160.8"/>
-    <circle cx="312.2" cy="234.5" r="1.6" fill="#24262c"/>
+    <path class="spoke" style="animation-delay:5.9s" d="M312.4 236.4L310.7 222.1"/>
   </g>
   <g><path d="M320 300L213.8 142.5A190 190 0 0 1 320 110Z" fill="#f0a23b" opacity=".13"/><path d="M320 300L320 110" stroke="#ffcf85" stroke-width="1.6"/>
     <animateTransform attributeName="transform" type="rotate" from="0 320 300" to="360 320 300" dur="6s" repeatCount="indefinite"/></g>
   <circle cx="320" cy="300" r="57" fill="#0a0b0e" stroke="#24262c"/>
-  <text class="sans ink" x="320" y="306" font-size="36" font-weight="700" text-anchor="middle">215</text>
+  <text class="sans ink" x="320" y="306" font-size="36" font-weight="700" text-anchor="middle">180</text>
   <text class="mono muted" x="320" y="326" font-size="12" letter-spacing="1.5" text-anchor="middle">52 WEEKS</text>
   <text class="mono muted" x="328" y="94" font-size="13" letter-spacing="1.5">NOW</text>
   <text class="mono soft" x="320" y="534" font-size="15" letter-spacing="1.5" text-anchor="middle">PEAK WEEK  34</text>
@@ -94,8 +94,8 @@
   <g class="ln" style="animation-delay:0.5s"><text class="mono" y="599" font-size="21" xml:space="preserve"><tspan class="muted" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2 249.9 262.6 275.3 288 300.7 313.4 326.1 338.8 351.5 364.2 376.9 389.6">Host is up. Reading activity.</tspan></text></g>
   
   <g class="ln" style="animation-delay:0.8s"><text class="mono" y="665" font-size="21" xml:space="preserve"><tspan class="muted" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2 249.9 262.6 275.3 288 300.7 313.4 326.1 338.8 351.5 364.2 376.9 389.6 402.3">FIELD            STATE   VALUE</tspan></text></g>
-  <g class="ln" style="animation-delay:0.9s"><text class="mono" y="698" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">contributions    </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2 376.9">575</tspan></text></g>
-  <g class="ln" style="animation-delay:1.1s"><text class="mono" y="731" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">commits          </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2 376.9">507</tspan></text></g>
+  <g class="ln" style="animation-delay:0.9s"><text class="mono" y="698" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">contributions    </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2 376.9">577</tspan></text></g>
+  <g class="ln" style="animation-delay:1.1s"><text class="mono" y="731" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">commits          </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2 376.9">508</tspan></text></g>
   <g class="ln" style="animation-delay:1.3s"><text class="mono" y="764" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">pull-requests    </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2 376.9">510</tspan></text></g>
   <g class="ln" style="animation-delay:1.4s"><text class="mono" y="797" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">public-repos     </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2">16</tspan></text></g>
   <g class="ln" style="animation-delay:1.6s"><text class="mono" y="830" font-size="21" xml:space="preserve"><tspan class="soft" x="34 46.7 59.4 72.1 84.8 97.5 110.2 122.9 135.6 148.3 161 173.7 186.4 199.1 211.8 224.5 237.2">languages        </tspan><tspan class="amber" x="249.9 262.6 275.3 288 300.7 313.4 326.1 338.8">open    </tspan><tspan class="ink" x="351.5 364.2">18</tspan></text></g>
